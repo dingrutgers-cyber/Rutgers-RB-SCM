@@ -472,17 +472,41 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
           </div>
         </div>
       </div>
-      <div class="vid" data-youtube-id="https://www.youtube.com/embed/XOrW0ou_gX4?si=6-IGJQGMpY4oUR7R">
-        <div class="vid-g"></div>
-        <div class="vid-play">
-          <svg viewBox="0 0 24 24">
-            <polygon points="5,3 19,12 5,21"></polygon>
-          </svg>
-        </div>
-        <p class="vid-cap">
-          Work in any industry with a degree in supply chain management from Rutgers Business School · 1 min
-        </p>
-      </div>
+      
+<div class="vid" data-youtube-id="https://www.youtube.com/embed/XOrW0ou_gX4?si=9rV1MphJnNjd1xOp">
+  <div class="vid-g"></div>
+  <div class="vid-play">
+    <svg viewBox="0 0 24 24">
+      <polygon points="5,3 19,12 5,21"></polygon>
+    </svg>
+  </div>
+  <p class="vid-cap">
+    Prof. McLaury — "Why Choose Supply Chain?" · 3 min
+  </p>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.vid').forEach(function (card) {
+      card.addEventListener('click', function () {
+        const id = card.getAttribute('data-youtube-id');
+        const iframe = document.createElement('iframe');
+        iframe.width = '560';
+        iframe.height = '315';
+        iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1';
+        iframe.title = 'YouTube video player';
+        iframe.frameBorder = '0';
+        iframe.allow =
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+
+        card.replaceWith(iframe);
+      });
+    });
+  });
+</script>
+      
+      
     </div>
   </div>
 
