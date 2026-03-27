@@ -473,38 +473,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
         </div>
       </div>
       
-<div class="vid" id="https://www.youtube.com/embed/XOrW0ou_gX4?si=9rV1MphJnNjd1xOp">
-  <div class="vid-g"></div>
-  <div class="vid-play">
-    <svg viewBox="0 0 24 24">
-      <polygon points="5,3 19,12 5,21"></polygon>
-    </svg>
+ <div class="vid" data-ytid="https://www.youtube.com/embed/XOrW0ou_gX4?si=9rV1MphJnNjd1xOp">
+  <div class="vid-g" style="background-image: url('https://img.youtube.com/vi/VIDEO_ID_HERE/hqdefault.jpg')"></div>
+  <div class="vid-play" onclick="playVid(this)">
+    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
   </div>
-  <p class="vid-cap">
-    Work in any industry with a degree in supply chain management · 3 min
-  </p>
+  <p class="vid-cap">Work in any industry with a degree in supply chain management · 1 min</p>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.vid').forEach(function (card) {
-      card.addEventListener('click', function () {
-        const id = card.getAttribute('data-youtube-id');
-        const iframe = document.createElement('iframe');
-        iframe.width = '1120';
-        iframe.height = '650';
-        iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1';
-        iframe.title = 'YouTube video player';
-        iframe.frameBorder = '0';
-        iframe.allow =
-          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-        iframe.allowFullscreen = true;
-
-        card.replaceWith(iframe);
-      });
-    });
-  });
-</script>
       
       
     </div>
