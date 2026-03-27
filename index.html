@@ -1,22 +1,12 @@
-
-<head>
-  <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: "Montserrat", sans-serif;
-    }
-  </style>
-
-
-
 <!DOCTYPE html>
-<!-- saved from url=(0049)file:///C:/Users/xd84/Downloads/scm-portal_2.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Rutgers SCM — Supply Chain Management</title>
-<link href="./Rutgers SCM — Supply Chain Management-V3_files/css2" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
 <style>
 :root{
   --scarlet:#CC0033;--scarlet-dark:#A8002A;--scarlet-pale:#FBF0F3;
@@ -60,8 +50,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
 .hub-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07)}
 .hub-card{background:var(--ink);padding:0;cursor:pointer;border:none;text-align:left;display:block;position:relative;overflow:hidden;transition:background .3s;width:100%}
 .hub-card:hover{background:#161616}
-
-/* Photo with large floating italic label */
 .hc-photo{width:100%;aspect-ratio:4/3;position:relative;overflow:hidden;background:#1a1a1a}
 .hc-photo-bg{position:absolute;inset:0;background-size:cover;background-position:center top;transition:transform .55s ease}
 .hub-card:hover .hc-photo-bg{transform:scale(1.05)}
@@ -69,8 +57,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
 .hc-float{position:absolute;bottom:0;left:0;right:0;padding:18px 24px 22px}
 .hc-float-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:500;margin-bottom:6px}
 .hc-float-type{font-family:'Playfair Display',serif;font-size:clamp(20px,2.4vw,28px);font-weight:400;font-style:italic;color:var(--white);line-height:1.1}
-
-/* Card body */
 .hc-body{padding:22px 24px 26px}
 .hc-title{font-size:14px;font-weight:500;color:var(--white);line-height:1.45;margin-bottom:7px}
 .hc-desc{font-size:12px;color:rgba(255,255,255,.38);line-height:1.65;font-weight:300}
@@ -78,7 +64,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
 .hc-cta{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:500}
 .hc-arrow{width:28px;height:28px;border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(255,255,255,.35);transition:all .3s}
 .hub-card:hover .hc-arrow{border-color:var(--scarlet);color:var(--scarlet);background:rgba(204,0,51,.1)}
-
 .hub-foot{position:absolute;bottom:22px;left:48px;right:48px;display:flex;align-items:center;justify-content:space-between}
 .hf-brand{display:flex;align-items:center;gap:9px}
 .hf-r{width:22px;height:22px;background:var(--scarlet);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:13px;color:var(--white);font-weight:700}
@@ -113,7 +98,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
 .ph-photo{position:relative;overflow:hidden;background:#d8d4d0}
 .ph-img{position:absolute;inset:0;background-size:cover;background-position:center top}
 .ph-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.06),transparent)}
-/* Floating student label on photo */
 .ph-float{position:absolute;bottom:40px;left:40px;right:40px}
 .ph-float-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:500;margin-bottom:8px}
 .ph-float-type{font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,54px);font-weight:400;font-style:italic;color:var(--white);line-height:1;text-shadow:0 2px 28px rgba(0,0,0,.35)}
@@ -285,13 +269,97 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
 .sc-flow-t{font-size:13px;font-weight:500;color:var(--white)}
 .sc-flow-s{font-size:11px;color:rgba(255,255,255,.3);margin-top:1px}
 
-/* Vid placeholder */
-.vid{width:100%;aspect-ratio:16/9;background:var(--ink);position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer;margin:36px 0;overflow:hidden}
-.vid-g{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:48px 48px}
-.vid-play{width:60px;height:60px;border:.5px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;transition:all .3s}
-.vid:hover .vid-play{border-color:var(--scarlet);background:rgba(204,0,51,.08)}
-.vid-play svg{width:17px;height:17px;fill:var(--white);margin-left:3px}
-.vid-cap{position:absolute;bottom:18px;left:22px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:500;z-index:1}
+/* ─── VIDEO CARDS ─── */
+.vid{
+  width:100%;
+  aspect-ratio:16/9;
+  background:var(--ink);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  margin:36px 0;
+  overflow:hidden;
+}
+/* thumbnail layer — shown before click */
+.vid-g{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  transition:transform .4s ease;
+}
+.vid:hover .vid-g{transform:scale(1.03)}
+/* dark overlay over thumbnail */
+.vid-g::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.35);
+  transition:background .3s;
+}
+.vid:hover .vid-g::after{background:rgba(0,0,0,.2)}
+/* fallback grid pattern when no thumbnail loaded */
+.vid-g.no-thumb{
+  background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.vid-play{
+  width:64px;
+  height:64px;
+  border:.5px solid rgba(255,255,255,.5);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  z-index:2;
+  transition:all .3s;
+  background:rgba(0,0,0,.3);
+}
+.vid:hover .vid-play{
+  border-color:var(--scarlet);
+  background:rgba(204,0,51,.75);
+  transform:scale(1.08);
+}
+.vid-play svg{width:18px;height:18px;fill:var(--white);margin-left:3px}
+.vid-cap{
+  position:absolute;
+  bottom:16px;
+  left:20px;
+  right:20px;
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.75);
+  font-weight:500;
+  z-index:2;
+  text-shadow:0 1px 6px rgba(0,0,0,.6);
+}
+/* playing state — hide overlay elements, show iframe full-bleed */
+.vid.playing .vid-play,
+.vid.playing .vid-cap{display:none}
+.vid.playing .vid-g{display:none}
+.vid iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  z-index:3;
+}
+
+/* Video grid — 2-column layout for multiple vids side by side */
+.vid-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2px;
+  background:var(--border);
+  margin-top:36px;
+}
+.vid-grid .vid{margin:0;aspect-ratio:16/9}
 
 /* Marquee */
 .mq{background:var(--scarlet);overflow:hidden;white-space:nowrap;padding:10px 0}
@@ -318,7 +386,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
 
 /* Responsive */
 @media(max-width:960px){
-  .hub-cards,.two-col,.page-hero,.cta-inner,.outcomes,.cards-grid,.why-grid,.dm-grid,.ev-grid,.story-grid{grid-template-columns:1fr}
+  .hub-cards,.two-col,.page-hero,.cta-inner,.outcomes,.cards-grid,.why-grid,.dm-grid,.ev-grid,.story-grid,.vid-grid{grid-template-columns:1fr}
   .page-hero{min-height:auto}
   .ph-photo{min-height:55vw}
   .stats-strip{flex-direction:column}
@@ -340,20 +408,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
 <body>
 
 <!-- NAV -->
-<nav id="site-nav" class="">
+<nav id="site-nav">
   <button class="nav-back" onclick="goHome()">
     <svg viewBox="0 0 14 14"><polyline points="9,2 4,7 9,12"></polyline></svg>All Paths
   </button>
   <button class="nav-wordmark" onclick="goHome()">Rutgers <span>SCM</span></button>
   <div class="nav-tabs">
-    <button class="nav-tab" id="nt-hs" onclick="goTo(&#39;hs&#39;)">High School</button>
-    <button class="nav-tab" id="nt-ad" onclick="goTo(&#39;ad&#39;)">Admitted</button>
-    <button class="nav-tab" id="nt-cur" onclick="goTo(&#39;cur&#39;)">Current Students</button>
+    <button class="nav-tab" id="nt-hs" onclick="goTo('hs')">High School</button>
+    <button class="nav-tab" id="nt-ad" onclick="goTo('ad')">Admitted</button>
+    <button class="nav-tab" id="nt-cur" onclick="goTo('cur')">Current Students</button>
   </div>
 </nav>
 
-<!-- ═══ HUB ═══ -->
-<div id="page-hub" class="page active" style="display: block;">
+<!-- ═══════════════════════════════════════
+     HUB
+════════════════════════════════════════ -->
+<div id="page-hub" class="page active" style="display:block">
   <div class="hub-grid-bg"></div>
   <div class="hub-accent-bar"></div>
   <div class="hub-inner">
@@ -362,12 +432,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
     <p class="hub-tagline">The discipline behind every product, medicine, and delivery — now one of the most sought-after careers in business. Tell us where you are.</p>
     <div class="hub-cards">
 
-      <button class="hub-card" onclick="goTo(&#39;hs&#39;)">
+      <button class="hub-card" onclick="goTo('hs')">
         <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url(&#39;https://github.com/dingrutgers-cyber/Rutgers-RB-SCM/blob/main/high-school-students-Gemini.png?raw=true?w=700&amp;q=85&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#1a2030"></div>
+          <div class="hc-photo-bg" style="background-image:url('https://github.com/dingrutgers-cyber/Rutgers-RB-SCM/blob/main/high-school-students-Gemini.png?raw=true');background-color:#1a2030"></div>
           <div class="hc-photo-dim"></div>
           <div class="hc-float">
-            <p class="hc-float-tag">01 - High School</p>
+            <p class="hc-float-tag">01 — High School</p>
             <p class="hc-float-type">Curious about<br>what's next</p>
           </div>
         </div>
@@ -378,34 +448,34 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
         </div>
       </button>
 
-      <button class="hub-card" onclick="goTo(&#39;ad&#39;)">
+      <button class="hub-card" onclick="goTo('ad')">
         <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url(&#39;https://github.com/dingrutgers-cyber/Rutgers-RB-SCM/blob/main/Gemini_Admitted%20students.png?raw=true?w=700&amp;q=85&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#201015"></div>
+          <div class="hc-photo-bg" style="background-image:url('https://github.com/dingrutgers-cyber/Rutgers-RB-SCM/blob/main/Gemini_Admitted%20students.png?raw=true');background-color:#201015"></div>
           <div class="hc-photo-dim"></div>
           <div class="hc-float">
-            <p class="hc-float-tag">02 - Admitted</p>
+            <p class="hc-float-tag">02 — Admitted</p>
             <p class="hc-float-type">Ready to choose<br>my major</p>
           </div>
         </div>
         <div class="hc-body">
           <p class="hc-title">I got into RBS. Now I need to choose the right major.</p>
-          <p class="hc-desc">SCM graduates lead global operations, deploy AI, and earn more - from day one.</p>
+          <p class="hc-desc">SCM graduates lead global operations, deploy AI, and earn more — from day one.</p>
           <div class="hc-action"><span class="hc-cta">Make Your Choice</span><div class="hc-arrow">→</div></div>
         </div>
       </button>
 
-      <button class="hub-card" onclick="goTo(&#39;cur&#39;)">
+      <button class="hub-card" onclick="goTo('cur')">
         <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url(&#39;https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=700&amp;q=85&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#10182a"></div>
+          <div class="hc-photo-bg" style="background-image:url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=700&q=85&auto=format&fit=crop&crop=top');background-color:#10182a"></div>
           <div class="hc-photo-dim"></div>
           <div class="hc-float">
-            <p class="hc-float-tag">03 - Current RBS</p>
+            <p class="hc-float-tag">03 — Current RBS</p>
             <p class="hc-float-type">Already enrolled —<br>reconsidering</p>
           </div>
         </div>
         <div class="hc-body">
           <p class="hc-title">I'm already at RBS. Can I still add or switch to SCM?</p>
-          <p class="hc-desc">Yes - and far simpler than you think. Your best career move may still be ahead of you.</p>
+          <p class="hc-desc">Yes — and far simpler than you think. Your best career move may still be ahead of you.</p>
           <div class="hc-action"><span class="hc-cta">See How It Works</span><div class="hc-arrow">→</div></div>
         </div>
       </button>
@@ -416,14 +486,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
     <div class="hf-brand"><div class="hf-r">R</div><span class="hf-text">Rutgers Business School · Supply Chain Management</span></div>
     <span style="font-size:10px;color:rgba(255,255,255,.12);letter-spacing:.06em">Design prototype</span>
   </div>
-</div>
+</div><!-- /hub -->
 
-<!-- ═══ HIGH SCHOOL ═══ -->
-<div id="page-hs" class="page inner-page" style="display: none;">
+
+<!-- ═══════════════════════════════════════
+     HIGH SCHOOL PAGE
+════════════════════════════════════════ -->
+<div id="page-hs" class="page inner-page" style="display:none">
 
   <div class="page-hero">
     <div class="ph-photo">
-      <div class="ph-img" style="background-image:url(&#39;https://github.com/dingrutgers-cyber/Rutgers-RB-SCM/blob/main/high-school-students-Copilot.png?raw=true?w=1000&amp;q=90&amp;auto=format&amp;fit=crop&amp;crop=top&#39;)"></div>
+      <div class="ph-img" style="background-image:url('https://github.com/dingrutgers-cyber/Rutgers-RB-SCM/blob/main/high-school-students-Copilot.png?raw=true')"></div>
       <div class="ph-overlay"></div>
       <div class="ph-float">
         <p class="ph-float-tag">High School Student</p>
@@ -435,8 +508,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
       <h1 class="ph-h1">Ever wonder how<br>things <em>get to you?</em></h1>
       <p class="ph-body">That phone in your pocket traveled across <strong>5 continents</strong> before it reached you. The people who made that happen — efficiently, on time, at scale — are supply chain managers. Demand for them has never been higher.</p>
       <div class="btns">
-        <button class="btn btn-s" onclick="scrollSec(&#39;hs-what&#39;)">Explore the Major</button>
-        <button class="btn btn-o" onclick="scrollSec(&#39;hs-careers&#39;)">See Career Paths</button>
+        <button class="btn btn-s" onclick="scrollSec('hs-what')">Explore the Major</button>
+        <button class="btn btn-o" onclick="scrollSec('hs-careers')">See Career Paths</button>
       </div>
     </div>
   </div>
@@ -472,15 +545,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
           </div>
         </div>
       </div>
-      
-<div class="vid"> 
-  <div class="vid-g"></div> 
-  <div class="vid-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div> 
-  <p class="vid-cap">Prof. McLaury — "Why Choose Supply Chain?" · 3 min</p> </div>
+
+      <!-- VIDEO: Prof. McLaury — Why Choose Supply Chain? (featured, full-width) -->
+      <div class="vid" data-ytid="2x41fYYuaig">
+        <div class="vid-g" style="background-image:url('https://img.youtube.com/vi/2x41fYYuaig/hqdefault.jpg')"></div>
+        <div class="vid-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+        <p class="vid-cap">Supply Chain Management at Rutgers Business School · Overview</p>
+      </div>
+
     </div>
   </div>
 
   <div class="divider"></div>
+
   <div class="sec" style="background:var(--warm)">
     <div class="wrap">
       <p class="eyebrow">The Journey</p>
@@ -488,7 +565,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
       <div class="tl">
         <div class="tl-item"><div class="tl-dot"></div><p class="tl-when">Year 1 — Foundation</p><h3 class="tl-title">Core Business + Introduction to SCM</h3><p class="tl-desc">Alongside core RBS business courses, you take Intro to SCM — understanding how supply chains connect finance, marketing, operations, and technology.</p><span class="tl-tag">Core courses · SCM 301</span></div>
         <div class="tl-item"><div class="tl-dot"></div><p class="tl-when">Year 2 — Specialization</p><h3 class="tl-title">Analytics, SAP, and Global Procurement</h3><p class="tl-desc">You begin working with SAP — enterprise software used by Fortune 500 companies — alongside courses in supply chain analytics, logistics planning, and global sourcing.</p><span class="tl-tag">SAP · Analytics · Global Procurement</span></div>
-        <div class="tl-item"><div class="tl-dot"></div><p class="tl-when">Year 3 — Industry Experience</p><h3 class="tl-title">Working on Real projects with Real companies in the program </h3><p class="tl-desc">Through the Industry Client Projects course, you're assigned to a company like J&amp;J or Amazon and solve an actual supply chain challenge they face. This becomes your most powerful resume item.</p><span class="tl-tag">Industry Projects · Internship / Co-op</span></div>
+        <div class="tl-item"><div class="tl-dot"></div><p class="tl-when">Year 3 — Industry Experience</p><h3 class="tl-title">Working on Real Projects with Real Companies</h3><p class="tl-desc">Through the Industry Client Projects course, you're assigned to a company like J&amp;J or Amazon and solve an actual supply chain challenge they face. This becomes your most powerful resume item.</p><span class="tl-tag">Industry Projects · Internship / Co-op</span></div>
         <div class="tl-item"><div class="tl-dot"></div><p class="tl-when">Year 4 — Career Launch</p><h3 class="tl-title">Graduate with an offer in hand</h3><p class="tl-desc">82% of RBS SCM graduates have a job offer before graduation day. Average starting salary $70,000. Top companies in pharma, tech, and consulting hire directly from Rutgers every year.</p><span class="tl-tag">87% placed within 6 months · $70K avg</span></div>
       </div>
     </div>
@@ -512,58 +589,23 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);o
 
   <div class="sec" style="background:var(--white)">
     <div class="wrap">
-      <p class="eyebrow">Student Voices</p>
+      <p class="eyebrow">Hear From Students</p>
       <h2 class="sec-title">They didn't know<br>what SCM was either.</h2>
-      <div class="story-grid">
-<div class="vid" data-ytid="2x41fYYuaig">
-  <div class="vid-g" style="background-image: url('https://img.youtube.com/vi/2x41fYYuaig/hqdefault.jpg')"></div>
-  <div class="vid-play">
-    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-  </div>
-  <p class="vid-cap">Supply Chain Management at Rutgers Business School · Overview</p>
-</div>
 
-<div class="vid" data-ytid="2bftZj5oTZ4">
-  <div class="vid-g" style="background-image: url('https://img.youtube.com/vi/2bftZj5oTZ4/hqdefault.jpg')"></div>
-  <div class="vid-play">
-    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-  </div>
-  <p class="vid-cap">Olivia Parker — "Preparing for a Supply Chain Career as an Undergrad"</p>
-</div>
-Admitted students page (competitive advantage):
-
-html
-<div class="vid" data-ytid="XOrW0ou_gX4">
-  <div class="vid-g" style="background-image: url('https://img.youtube.com/vi/XOrW0ou_gX4/hqdefault.jpg')"></div>
-  <div class="vid-play">
-    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-  </div>
-  <p class="vid-cap">Work in any industry with a supply chain degree · 1 min</p>
-</div>
-
-<div class="vid" data-ytid="bSTz_Siab2o">
-  <div class="vid-g" style="background-image: url('https://img.youtube.com/vi/bSTz_Siab2o/hqdefault.jpg')"></div>
-  <div class="vid-play">
-    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-  </div>
-  <p class="vid-cap">Prof. McLaury — "Why Choose Supply Chain?" · Faculty perspective</p>
-</div>
-Current RBS students page (urgency):
-
-html
-<div class="vid" data-ytid="-UWeMKY--JY">
-  <div class="vid-g" style="background-image: url('https://img.youtube.com/vi/-UWeMKY--JY/hqdefault.jpg')"></div>
-  <div class="vid-play">
-    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
-  </div>
-  <p class="vid-cap">Michael Pavlo, ZS Associates — "Why I Chose RBS Supply Chain" · Alumni voice</p>
-</div>
-Replace your existing placeholder <div class="vid"> blocks with these and the click-to-play JS already in your <script> block will handle the rest. No other changes needed.
-
-
-
-
+      <!-- VIDEO GRID: 2 videos side-by-side -->
+      <div class="vid-grid">
+        <div class="vid" data-ytid="2bftZj5oTZ4">
+          <div class="vid-g" style="background-image:url('https://img.youtube.com/vi/2bftZj5oTZ4/hqdefault.jpg')"></div>
+          <div class="vid-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+          <p class="vid-cap">Olivia Parker — "Preparing for a Supply Chain Career as an Undergrad"</p>
+        </div>
+        <div class="vid" data-ytid="2x41fYYuaig">
+          <div class="vid-g" style="background-image:url('https://img.youtube.com/vi/2x41fYYuaig/hqdefault.jpg')"></div>
+          <div class="vid-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+          <p class="vid-cap">Supply Chain Management at RBS · Program Overview</p>
+        </div>
       </div>
+
     </div>
   </div>
 
@@ -583,23 +625,27 @@ Replace your existing placeholder <div class="vid"> blocks with these and the cl
     <div class="cta-inner">
       <div><h2 class="cta-h">Ready to see where SCM takes you?</h2><p class="cta-sub">Explore the program, meet an advisor, or watch a 3-minute video. Start anywhere.</p></div>
       <div class="cta-acts">
-        <button class="ca p" onclick="scrollSec(&#39;hs-what&#39;)">Explore the Program →</button>
-        <button class="ca g" onclick="scrollSec(&#39;hs-careers&#39;)">View Career Paths →</button>
+        <button class="ca p" onclick="scrollSec('hs-what')">Explore the Program →</button>
+        <button class="ca g" onclick="scrollSec('hs-careers')">View Career Paths →</button>
         <button class="ca g" onclick="goHome()">← Back to All Paths</button>
       </div>
     </div>
   </div>
   <div class="pfoot"><p>© 2025 Rutgers Business School · Supply Chain Management · Prototype</p><button onclick="goHome()">← All Paths</button></div>
-</div>
 
-<!-- ═══ ADMITTED ═══ -->
-<div id="page-ad" class="page inner-page">
+</div><!-- /page-hs -->
+
+
+<!-- ═══════════════════════════════════════
+     ADMITTED STUDENTS PAGE
+════════════════════════════════════════ -->
+<div id="page-ad" class="page inner-page" style="display:none">
 
   <div class="mq"><div class="mq-t"><span>Changemaker</span><span class="sep">·</span><span>Last-Mile Innovator</span><span class="sep">·</span><span>Global Operations</span><span class="sep">·</span><span>AI + Supply Chain</span><span class="sep">·</span><span>#5 in North America</span><span class="sep">·</span><span>82% Placed at Graduation</span><span class="sep">·</span><span>$70K Starting Salary</span><span class="sep">·</span><span>Changemaker</span><span class="sep">·</span><span>Last-Mile Innovator</span><span class="sep">·</span><span>Global Operations</span><span class="sep">·</span><span>AI + Supply Chain</span><span class="sep">·</span><span>#5 in North America</span><span class="sep">·</span><span>82% Placed at Graduation</span><span class="sep">·</span><span>$70K Starting Salary</span><span class="sep">·</span></div></div>
 
   <div class="page-hero">
     <div class="ph-photo">
-      <div class="ph-img" style="background-image:url(&#39;https://github.com/dingrutgers-cyber/Rutgers-RB-SCM/blob/main/Gemini_Admitted%20students.png?raw=true?w=1000&amp;q=90&amp;auto=format&amp;fit=crop&amp;crop=top&#39;)"></div>
+      <div class="ph-img" style="background-image:url('https://github.com/dingrutgers-cyber/Rutgers-RB-SCM/blob/main/Gemini_Admitted%20students.png?raw=true')"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.1),transparent)"></div>
       <div class="ph-float">
         <p class="ph-float-tag">Admitted Student</p>
@@ -611,8 +657,8 @@ Replace your existing placeholder <div class="vid"> blocks with these and the cl
       <h1 class="ph-h1" style="color:var(--white)">Don't just<br><em>follow the crowd.</em></h1>
       <p class="ph-body" style="color:rgba(255,255,255,.48)">SCM is the <strong style="color:rgba(255,255,255,.9)">strategic</strong> choice. Our SCM graduates lead global operations, deploy AI, and solve real problems — from day one.</p>
       <div class="btns">
-        <button class="btn btn-s" onclick="scrollSec(&#39;ad-compare&#39;)">SCM vs Finance</button>
-        <button class="btn btn-ow" onclick="scrollSec(&#39;ad-outcomes&#39;)">Where Grads Land</button>
+        <button class="btn btn-s" onclick="scrollSec('ad-compare')">SCM vs Finance</button>
+        <button class="btn btn-ow" onclick="scrollSec('ad-outcomes')">Where Grads Land</button>
       </div>
     </div>
   </div>
@@ -644,6 +690,21 @@ Replace your existing placeholder <div class="vid"> blocks with these and the cl
           <div class="cg-card"><span class="cg-icon">♻️</span><p class="cg-title">Lead the Sustainability Revolution</p><p class="cg-body">Every major company needs ethical, low-carbon, circular supply chains. SCM professionals are the architects.</p></div>
         </div>
       </div>
+
+      <!-- VIDEO GRID: 2 videos side-by-side -->
+      <div class="vid-grid">
+        <div class="vid" data-ytid="XOrW0ou_gX4">
+          <div class="vid-g" style="background-image:url('https://img.youtube.com/vi/XOrW0ou_gX4/hqdefault.jpg')"></div>
+          <div class="vid-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+          <p class="vid-cap">Work in any industry with a supply chain degree · 1 min</p>
+        </div>
+        <div class="vid" data-ytid="bSTz_Siab2o">
+          <div class="vid-g" style="background-image:url('https://img.youtube.com/vi/bSTz_Siab2o/hqdefault.jpg')"></div>
+          <div class="vid-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+          <p class="vid-cap">Prof. McLaury — "Why Choose Supply Chain?" · Faculty perspective</p>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -691,9 +752,9 @@ Replace your existing placeholder <div class="vid"> blocks with these and the cl
       <p class="eyebrow">From Students Like You</p>
       <h2 class="sec-title">They chose SCM.<br><em>Here's what happened.</em></h2>
       <div class="story-grid">
-        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#c8c0b8"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Marcus T.</p><p class="sc-role">Junior, SCM + Finance</p><p class="sc-q">"My advisor told me SCM + Finance is the most sought-after double major right now. She wasn't wrong — I had two internship offers before junior year."</p></div></div>
-        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#d0c8c0"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Priya S.</p><p class="sc-role">Senior, SCM + BAIT</p><p class="sc-q">"I'm building predictive models for a supply chain company as a senior intern. The AI curriculum here is genuinely ahead of other programs."</p></div></div>
-        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#c0c8c0"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Kevin L.</p><p class="sc-role">Incoming Freshman, '29</p><p class="sc-q">"I came to orientation thinking Finance. After the SCM info session, I changed my mind on the spot. The career data spoke for itself."</p></div></div>
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=80&auto=format&fit=crop&crop=top');background-color:#c8c0b8"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Marcus T.</p><p class="sc-role">Junior, SCM + Finance</p><p class="sc-q">"My advisor told me SCM + Finance is the most sought-after double major right now. She wasn't wrong — I had two internship offers before junior year."</p></div></div>
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80&auto=format&fit=crop&crop=top');background-color:#d0c8c0"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Priya S.</p><p class="sc-role">Senior, SCM + BAIT</p><p class="sc-q">"I'm building predictive models for a supply chain company as a senior intern. The AI curriculum here is genuinely ahead of other programs."</p></div></div>
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80&auto=format&fit=crop&crop=top');background-color:#c0c8c0"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Kevin L.</p><p class="sc-role">Incoming Freshman, '29</p><p class="sc-q">"I came to orientation thinking Finance. After the SCM info session, I changed my mind on the spot. The career data spoke for itself."</p></div></div>
       </div>
     </div>
   </div>
@@ -715,21 +776,25 @@ Replace your existing placeholder <div class="vid"> blocks with these and the cl
     <div class="cta-inner">
       <div><h2 class="cta-h">Don't choose default. Choose SCM.</h2><p class="cta-sub">You earned your spot at RBS. Make the major decision count — it shapes the next four years.</p></div>
       <div class="cta-acts">
-        <button class="ca p" onclick="scrollSec(&#39;ad-compare&#39;)">Schedule an Advising Session →</button>
-        <button class="ca g" onclick="scrollSec(&#39;ad-outcomes&#39;)">Register for Orientation Info Session →</button>
+        <button class="ca p" onclick="scrollSec('ad-compare')">Schedule an Advising Session →</button>
+        <button class="ca g" onclick="scrollSec('ad-outcomes')">Register for Orientation Info Session →</button>
         <button class="ca g" onclick="goHome()">← Back to All Paths</button>
       </div>
     </div>
   </div>
   <div class="pfoot"><p>© 2025 Rutgers Business School · Supply Chain Management · Prototype</p><button onclick="goHome()">← All Paths</button></div>
-</div>
 
-<!-- ═══ CURRENT STUDENTS ═══ -->
-<div id="page-cur" class="page inner-page" style="display: none;">
+</div><!-- /page-ad -->
+
+
+<!-- ═══════════════════════════════════════
+     CURRENT STUDENTS PAGE
+════════════════════════════════════════ -->
+<div id="page-cur" class="page inner-page" style="display:none">
 
   <div class="page-hero">
     <div class="ph-photo">
-      <div class="ph-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1000&amp;q=90&amp;auto=format&amp;fit=crop&amp;crop=top&#39;)"></div>
+      <div class="ph-img" style="background-image:url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1000&q=90&auto=format&fit=crop&crop=top')"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,.04),transparent)"></div>
       <div class="ph-float">
         <p class="ph-float-tag">Current RBS Student</p>
@@ -739,10 +804,10 @@ Replace your existing placeholder <div class="vid"> blocks with these and the cl
     <div class="ph-content">
       <p class="ph-eyebrow">For Current RBS Students</p>
       <h1 class="ph-h1">Your best career<br>move <em>isn't gone.</em></h1>
-      <p class="ph-body">Already enrolled but not in SCM? Whether you want to <strong>switch your major</strong> - it's more achievable than you think, and the payoff is substantial.</p>
+      <p class="ph-body">Already enrolled but not in SCM? Whether you want to <strong>switch your major</strong> or add it as a double — it's more achievable than you think, and the payoff is substantial.</p>
       <div class="btns">
-        <button class="btn btn-s" onclick="scrollSec(&#39;cur-switch&#39;)">How to Switch →</button>
-        <button class="btn btn-o" onclick="scrollSec(&#39;cur-compare&#39;)">SCM vs My Major</button>
+        <button class="btn btn-s" onclick="scrollSec('cur-switch')">How to Switch →</button>
+        <button class="btn btn-o" onclick="scrollSec('cur-compare')">SCM vs My Major</button>
       </div>
     </div>
   </div>
@@ -770,7 +835,7 @@ Replace your existing placeholder <div class="vid"> blocks with these and the cl
           </div>
         </div>
         <div>
-          <h3 style="font-family:&#39;Playfair Display&#39;,serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:22px;line-height:1.2">Why students switch — in their own words.</h3>
+          <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:22px;line-height:1.2">Why students switch — in their own words.</h3>
           <div class="persp-stack">
             <div class="pi"><p class="pi-label">Finance → SCM</p><p class="pi-q">"I switched in my sophomore year. The credit overlap was significant — barely lost any time. And I walked into a $72K offer while Finance classmates were still interviewing."</p><p class="pi-name">Marcus T., SCM + Finance, '26</p></div>
             <div class="pi"><p class="pi-label">Marketing → SCM</p><p class="pi-q">"Marketing was enjoyable but the career path was unclear. SCM showed me exactly where I'd be in three years — and the program actually delivered on that."</p><p class="pi-name">Aisha W., SCM Major, '25</p></div>
@@ -778,6 +843,14 @@ Replace your existing placeholder <div class="vid"> blocks with these and the cl
           </div>
         </div>
       </div>
+
+      <!-- VIDEO: Alumni voice — Michael Pavlo (full-width, featured) -->
+      <div class="vid" data-ytid="-UWeMKY--JY">
+        <div class="vid-g" style="background-image:url('https://img.youtube.com/vi/-UWeMKY--JY/hqdefault.jpg')"></div>
+        <div class="vid-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+        <p class="vid-cap">Michael Pavlo, ZS Associates — "Why I Chose RBS Supply Chain" · Alumni voice</p>
+      </div>
+
     </div>
   </div>
 
@@ -877,9 +950,9 @@ Replace your existing placeholder <div class="vid"> blocks with these and the cl
       <p class="eyebrow">From Students Who Switched</p>
       <h2 class="sec-title">They were in your seat.<br><em>Here's where they are now.</em></h2>
       <div class="story-grid">
-        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#c8c4bc"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Sofia Reyes</p><p class="sc-role">SCM + Finance, '25 → Merck</p><p class="sc-q">"My advisor showed me I only needed four extra courses. I graduate with two majors and an offer from Merck. Best decision I made at RBS."</p></div></div>
-        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#c0c8c4"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Marcus Thompson</p><p class="sc-role">SCM + BAIT, '26</p><p class="sc-q">"I added SCM in my junior year — advisor made it work without delaying graduation. The SAP certification alone changed every interview I had."</p></div></div>
-        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#c4ccc8"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Priya Sharma</p><p class="sc-role">SCM Major, '27</p><p class="sc-q">"I switched from Marketing at end of freshman year. Didn't lose a single credit. The program is built to welcome switchers."</p></div></div>
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80&auto=format&fit=crop&crop=top');background-color:#c8c4bc"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Sofia Reyes</p><p class="sc-role">SCM + Finance, '25 → Merck</p><p class="sc-q">"My advisor showed me I only needed four extra courses. I graduate with two majors and an offer from Merck. Best decision I made at RBS."</p></div></div>
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=600&q=80&auto=format&fit=crop&crop=top');background-color:#c0c8c4"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Marcus Thompson</p><p class="sc-role">SCM + BAIT, '26</p><p class="sc-q">"I added SCM in my junior year — advisor made it work without delaying graduation. The SAP certification alone changed every interview I had."</p></div></div>
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80&auto=format&fit=crop&crop=top');background-color:#c4ccc8"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Priya Sharma</p><p class="sc-role">SCM Major, '27</p><p class="sc-q">"I switched from Marketing at end of freshman year. Didn't lose a single credit. The program is built to welcome switchers."</p></div></div>
       </div>
     </div>
   </div>
@@ -888,19 +961,22 @@ Replace your existing placeholder <div class="vid"> blocks with these and the cl
     <div class="cta-inner">
       <div><h2 class="cta-h">The switch starts with one meeting.</h2><p class="cta-sub">Book 30 minutes with an SCM advisor. They'll show you exactly what switching looks like for your transcript — no guessing, no commitment required.</p></div>
       <div class="cta-acts">
-        <button class="ca p" onclick="scrollSec(&#39;cur-switch&#39;)">Book an SCM Advising Session →</button>
-        <button class="ca g" onclick="scrollSec(&#39;cur-compare&#39;)">Register for Fall Info Session →</button>
+        <button class="ca p" onclick="scrollSec('cur-switch')">Book an SCM Advising Session →</button>
+        <button class="ca g" onclick="scrollSec('cur-compare')">Register for Fall Info Session →</button>
         <button class="ca g" onclick="goHome()">← Back to All Paths</button>
       </div>
     </div>
   </div>
   <div class="pfoot"><p>© 2025 Rutgers Business School · Supply Chain Management · Prototype</p><button onclick="goHome()">← All Paths</button></div>
-</div>
+
+</div><!-- /page-cur -->
+
 
 <script>
+/* ─── SPA ROUTER ─── */
 const NAV = document.getElementById('site-nav');
 let cur = 'hub';
-const TABS = {hs:'nt-hs',ad:'nt-ad',cur:'nt-cur'};
+const TABS = { hs:'nt-hs', ad:'nt-ad', cur:'nt-cur' };
 
 function goTo(id) {
   if (id === cur) return;
@@ -908,12 +984,12 @@ function goTo(id) {
   const toEl   = document.getElementById('page-' + id);
   fromEl.classList.add('fading');
   setTimeout(() => {
-    fromEl.classList.remove('active','fading');
+    fromEl.classList.remove('active', 'fading');
     fromEl.style.display = 'none';
     toEl.style.display = 'block';
     requestAnimationFrame(() => requestAnimationFrame(() => {
       toEl.classList.add('active');
-      window.scrollTo({top:0,behavior:'instant'});
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }));
   }, 320);
   NAV.className = id === 'hub' ? '' : 'show';
@@ -921,13 +997,26 @@ function goTo(id) {
   if (TABS[id]) document.getElementById(TABS[id]).classList.add('on');
   cur = id;
 }
-function goHome() { goTo('hub'); }
-function scrollSec(id) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({behavior:'smooth',block:'start'});
-}
+function goHome()          { goTo('hub'); }
+function scrollSec(id)     { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior:'smooth', block:'start' }); }
+
+/* ─── VIDEO CLICK-TO-PLAY ─── */
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.vid-play');
+  if (!btn) return;
+  const card = btn.closest('.vid');
+  if (!card) return;
+  const id = card.dataset.ytid;
+  if (!id) return;
+  // Remove thumbnail + play button, inject iframe with autoplay
+  card.classList.add('playing');
+  const iframe = document.createElement('iframe');
+  iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
+  iframe.allow = 'autoplay; encrypted-media; fullscreen';
+  iframe.allowFullscreen = true;
+  card.appendChild(iframe);
+});
 </script>
 
-
-</body></html>
-</head>
+</body>
+</html>
