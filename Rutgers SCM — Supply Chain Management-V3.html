@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)file:///C:/Users/xd84/Downloads/scm-portal_2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Rutgers SCM — Supply Chain Management</title>
+<link href="./Rutgers SCM — Supply Chain Management-V3_files/css2" rel="stylesheet">
+<style>
+:root{
+  --scarlet:#CC0033;--scarlet-dark:#A8002A;--scarlet-pale:#FBF0F3;
+  --rut-gray:#5F6A72;--rut-gray-light:#E8EAEB;--rut-gray-pale:#F4F5F5;
+  --ink:#0F0F0F;--white:#FFFFFF;--warm:#FAFAF7;--border:#E2DEDB;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* PAGE TRANSITIONS */
+.page{display:none;opacity:0;transition:opacity .45s ease}
+.page.active{display:block;opacity:1}
+.page.fading{opacity:0}
+
+/* NAV */
+#site-nav{position:fixed;top:0;left:0;right:0;z-index:900;height:52px;display:none;align-items:center;justify-content:space-between;padding:0 56px;background:rgba(255,255,255,.97);border-bottom:.5px solid var(--border);backdrop-filter:blur(8px)}
+#site-nav.show{display:flex}
+.nav-wordmark{font-family:'Playfair Display',serif;font-size:17px;color:var(--ink);letter-spacing:.01em;cursor:pointer;border:none;background:none}
+.nav-wordmark span{color:var(--scarlet)}
+.nav-tabs{display:flex;gap:0}
+.nav-tab{background:none;border:none;padding:0 18px;height:52px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--rut-gray);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;margin-bottom:-1px}
+.nav-tab:hover{color:var(--ink)}
+.nav-tab.on{color:var(--scarlet);border-bottom-color:var(--scarlet)}
+.nav-back{background:none;border:none;font-size:12px;color:var(--rut-gray);cursor:pointer;display:flex;align-items:center;gap:6px;font-family:'DM Sans',sans-serif;letter-spacing:.04em;transition:color .2s}
+.nav-back:hover{color:var(--ink)}
+.nav-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5}
+
+/* HUB */
+#page-hub{min-height:100vh;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px 48px 88px;position:relative;overflow:hidden}
+.hub-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:72px 72px;pointer-events:none}
+.hub-accent-bar{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--scarlet)}
+.hub-inner{position:relative;z-index:1;width:100%;max-width:1080px}
+.hub-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--rut-gray);margin-bottom:28px;display:flex;align-items:center;gap:12px}
+.hub-kicker::before{content:'';width:24px;height:1px;background:var(--scarlet)}
+.hub-h1{font-family:'Playfair Display',serif;font-size:clamp(52px,7vw,88px);line-height:.95;color:var(--white);margin-bottom:14px;font-weight:400}
+.hub-h1 em{color:var(--scarlet);font-style:italic}
+.hub-tagline{font-size:16px;color:rgba(255,255,255,.4);font-weight:300;max-width:480px;line-height:1.65;margin-bottom:56px}
+
+/* Hub cards */
+.hub-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07)}
+.hub-card{background:var(--ink);padding:0;cursor:pointer;border:none;text-align:left;display:block;position:relative;overflow:hidden;transition:background .3s;width:100%}
+.hub-card:hover{background:#161616}
+
+/* Photo with large floating italic label */
+.hc-photo{width:100%;aspect-ratio:4/3;position:relative;overflow:hidden;background:#1a1a1a}
+.hc-photo-bg{position:absolute;inset:0;background-size:cover;background-position:center top;transition:transform .55s ease}
+.hub-card:hover .hc-photo-bg{transform:scale(1.05)}
+.hc-photo-dim{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,15,15,.88) 0%,rgba(15,15,15,.25) 55%,rgba(15,15,15,.08) 100%)}
+.hc-float{position:absolute;bottom:0;left:0;right:0;padding:18px 24px 22px}
+.hc-float-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:500;margin-bottom:6px}
+.hc-float-type{font-family:'Playfair Display',serif;font-size:clamp(20px,2.4vw,28px);font-weight:400;font-style:italic;color:var(--white);line-height:1.1}
+
+/* Card body */
+.hc-body{padding:22px 24px 26px}
+.hc-title{font-size:14px;font-weight:500;color:var(--white);line-height:1.45;margin-bottom:7px}
+.hc-desc{font-size:12px;color:rgba(255,255,255,.38);line-height:1.65;font-weight:300}
+.hc-action{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.06)}
+.hc-cta{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:500}
+.hc-arrow{width:28px;height:28px;border:1px solid rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(255,255,255,.35);transition:all .3s}
+.hub-card:hover .hc-arrow{border-color:var(--scarlet);color:var(--scarlet);background:rgba(204,0,51,.1)}
+
+.hub-foot{position:absolute;bottom:22px;left:48px;right:48px;display:flex;align-items:center;justify-content:space-between}
+.hf-brand{display:flex;align-items:center;gap:9px}
+.hf-r{width:22px;height:22px;background:var(--scarlet);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:13px;color:var(--white);font-weight:700}
+.hf-text{font-size:10px;color:rgba(255,255,255,.18);letter-spacing:.12em;text-transform:uppercase}
+
+/* SHARED INNER */
+.inner-page{padding-top:52px}
+.sec{padding:80px 0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 56px}
+.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--rut-gray);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--scarlet)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,52px);line-height:1.04;color:var(--ink);margin-bottom:16px;font-weight:400}
+.sec-title em{font-style:italic;color:var(--scarlet)}
+.sec-body{font-size:16px;color:var(--rut-gray);line-height:1.8;font-weight:300;max-width:600px}
+.divider{height:.5px;background:var(--border)}
+
+/* Stats strip */
+.stats-strip{display:flex;gap:0}
+.stat-c{flex:1;padding:24px 28px;border-right:.5px solid var(--border)}
+.stat-c:last-child{border-right:none}
+.stat-n{font-family:'Playfair Display',serif;font-size:38px;font-weight:400;line-height:1}
+.stat-l{font-size:11px;color:var(--rut-gray);letter-spacing:.07em;text-transform:uppercase;margin-top:4px;line-height:1.4}
+.stat-c.dark{border-color:rgba(255,255,255,.08)}
+.stat-c.dark .stat-n{color:var(--white)}
+.stat-c.dark .stat-l{color:rgba(255,255,255,.3)}
+
+/* Two-col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+
+/* Hero split */
+.page-hero{display:grid;grid-template-columns:1fr 1fr;min-height:88vh}
+.ph-photo{position:relative;overflow:hidden;background:#d8d4d0}
+.ph-img{position:absolute;inset:0;background-size:cover;background-position:center top}
+.ph-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.06),transparent)}
+/* Floating student label on photo */
+.ph-float{position:absolute;bottom:40px;left:40px;right:40px}
+.ph-float-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:500;margin-bottom:8px}
+.ph-float-type{font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,54px);font-weight:400;font-style:italic;color:var(--white);line-height:1;text-shadow:0 2px 28px rgba(0,0,0,.35)}
+.ph-content{display:flex;flex-direction:column;justify-content:flex-end;padding:56px 56px 64px;background:var(--white)}
+.ph-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--rut-gray);display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.ph-eyebrow::before{content:'';width:20px;height:1px;background:var(--scarlet)}
+.ph-h1{font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,58px);line-height:.97;color:var(--ink);margin-bottom:20px;font-weight:400}
+.ph-h1 em{font-style:italic;color:var(--scarlet)}
+.ph-body{font-size:15px;color:var(--rut-gray);line-height:1.75;max-width:420px;font-weight:300}
+.ph-body strong{color:var(--ink);font-weight:500}
+
+/* Buttons */
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s}
+.btn-s{background:var(--scarlet);color:var(--white)}.btn-s:hover{background:var(--scarlet-dark)}
+.btn-o{border:.5px solid var(--ink);color:var(--ink);background:transparent}.btn-o:hover{background:var(--ink);color:var(--white)}
+.btn-ow{border:.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.75);background:transparent}.btn-ow:hover{border-color:rgba(255,255,255,.65);color:var(--white)}
+
+/* Pull quote */
+.pq{border-left:2px solid var(--scarlet);padding-left:22px;margin:28px 0}
+.pq blockquote{font-family:'Source Serif 4',serif;font-size:17px;line-height:1.75;color:var(--ink);font-weight:300;font-style:italic}
+.pq cite{display:block;margin-top:9px;font-size:10px;font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--rut-gray);font-family:'DM Sans',sans-serif}
+
+/* Compare table */
+.ctbl{width:100%;border-collapse:collapse;margin-top:36px}
+.ctbl th{padding:11px 16px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;border-bottom:.5px solid var(--border);text-align:left}
+.ctbl th.s{color:var(--scarlet);background:var(--scarlet-pale)}
+.ctbl th.o{color:var(--rut-gray);background:var(--rut-gray-pale)}
+.ctbl td{padding:12px 16px;font-size:13px;border-bottom:.5px solid var(--border);vertical-align:top;color:var(--rut-gray);line-height:1.5;font-weight:300}
+.ctbl td.topic{font-weight:500;color:var(--ink);font-size:13px}
+.ctbl td.sv{background:var(--scarlet-pale);color:var(--ink)}
+.ctbl td.ov{background:var(--rut-gray-pale)}
+.ctbl .good{color:#1a6640;font-weight:500}
+.ctbl tr:last-child td{border-bottom:none}
+
+/* Timeline */
+.tl{position:relative;padding-left:28px;margin-top:40px}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border)}
+.tl-item{padding:0 0 32px 28px;position:relative}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:-28px;top:4px;width:11px;height:11px;background:var(--white);border:.5px solid var(--scarlet);transform:translateX(-50%) translateX(1px)}
+.tl-when{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--rut-gray);margin-bottom:5px;font-weight:500}
+.tl-title{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:5px}
+.tl-desc{font-size:13px;color:var(--rut-gray);line-height:1.65;font-weight:300}
+.tl-tag{display:inline-block;margin-top:7px;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--rut-gray);background:var(--rut-gray-light);padding:3px 8px}
+
+/* Cards grid */
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:36px}
+.cg-card{background:var(--white);padding:26px;position:relative;overflow:hidden}
+.cg-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--scarlet);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.cg-card:hover::before{transform:scaleX(1)}
+.cg-icon{font-size:20px;margin-bottom:12px;display:block}
+.cg-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.cg-body{font-size:13px;color:var(--rut-gray);line-height:1.65;font-weight:300}
+
+/* Dark cards grid */
+.cards-dark{background:rgba(255,255,255,.06)}
+.cg-card-dark{background:var(--ink);padding:26px;transition:background .25s}
+.cg-card-dark:hover{background:#161616}
+.cg-card-dark .cg-title{color:var(--white)}
+.cg-card-dark .cg-body{color:rgba(255,255,255,.4)}
+.cg-sal{margin-top:10px;font-family:'Playfair Display',serif;font-size:20px;color:var(--white);font-weight:400}
+.cg-sal-l{font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.1em;text-transform:uppercase}
+
+/* Outcomes dark */
+.outcomes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);margin-top:36px}
+.oc{background:var(--ink);padding:26px 22px;position:relative;overflow:hidden;transition:background .25s}
+.oc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--scarlet);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.oc:hover{background:#161616}
+.oc:hover::after{transform:scaleX(1)}
+.oc-co{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--scarlet);margin-bottom:7px;font-weight:500}
+.oc-name{font-size:15px;font-weight:500;color:var(--white);margin-bottom:2px}
+.oc-role{font-size:11px;color:rgba(255,255,255,.28);margin-bottom:10px;font-weight:300}
+.oc-q{font-family:'Source Serif 4',serif;font-size:13px;color:rgba(255,255,255,.48);line-height:1.65;font-style:italic;font-weight:300}
+.oc-sal{display:inline-block;margin-top:10px;font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--scarlet);border:.5px solid rgba(204,0,51,.3);padding:3px 9px}
+
+/* Steps */
+.steps{display:flex;flex-direction:column;gap:0;margin-top:28px}
+.step{display:flex;gap:22px;padding:24px 0;border-bottom:.5px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step-n{width:34px;height:34px;border:.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:16px;color:var(--scarlet);flex-shrink:0;font-weight:400}
+.step-title{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:5px}
+.step-desc{font-size:13px;color:var(--rut-gray);line-height:1.65;font-weight:300}
+.step-when{display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--scarlet);font-weight:500}
+
+/* Info boxes */
+.info-stack{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.ib{background:var(--warm);padding:22px 26px}
+.ib-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:9px}
+.ib-body{font-size:13px;color:var(--rut-gray);line-height:1.65;font-weight:300}
+.ib-list{list-style:none;margin-top:8px}
+.ib-list li{padding:6px 0;border-bottom:.5px solid var(--border);font-size:12px;color:var(--rut-gray);font-weight:300;display:flex;gap:7px;line-height:1.5}
+.ib-list li:last-child{border-bottom:none}
+.ib-list li::before{content:'→';color:var(--scarlet);font-size:10px;flex-shrink:0;margin-top:3px}
+
+/* Perspectives */
+.persp-stack{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.pi{background:var(--white);padding:22px 26px}
+.pi-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--scarlet);margin-bottom:7px}
+.pi-q{font-family:'Source Serif 4',serif;font-size:14px;color:var(--rut-gray);line-height:1.7;font-style:italic;font-weight:300}
+.pi-name{font-size:11px;color:rgba(15,15,15,.3);margin-top:7px;letter-spacing:.03em}
+
+/* Checklist */
+.cl{margin-top:20px}
+.cl-item{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:.5px solid var(--border)}
+.cl-item:last-child{border-bottom:none}
+.cl-icon{width:30px;height:30px;background:var(--scarlet-pale);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.cl-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.cl-sub{font-size:12px;color:var(--rut-gray);font-weight:300;line-height:1.5}
+.cl-badge{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;margin-left:auto;flex-shrink:0;align-self:center}
+.b-red{background:var(--scarlet-pale);color:var(--scarlet)}
+.b-gray{background:var(--rut-gray-light);color:var(--rut-gray)}
+
+/* Why-switch grid */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:36px}
+.wc{background:var(--white);padding:26px;position:relative;overflow:hidden}
+.wc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--scarlet);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.wc:hover::before{transform:scaleX(1)}
+.wc-icon{font-size:19px;margin-bottom:12px;display:block}
+.wc-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:5px}
+.wc-body{font-size:13px;color:var(--rut-gray);line-height:1.65;font-weight:300}
+
+/* Double major grid */
+.dm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:36px}
+.dm-c{background:var(--white);padding:22px;text-align:center;transition:background .2s}
+.dm-c:hover{background:var(--scarlet-pale)}
+.dm-icon{font-size:22px;margin-bottom:9px}
+.dm-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.dm-desc{font-size:12px;color:var(--rut-gray);line-height:1.5;font-weight:300}
+.dm-tag{display:inline-block;margin-top:7px;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--scarlet)}
+
+/* Events */
+.ev-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:36px}
+.ev-c{background:var(--white);padding:22px;display:flex;gap:15px;cursor:pointer;transition:background .2s}
+.ev-c:hover{background:var(--scarlet-pale)}
+.ev-dt{width:42px;height:42px;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+.ev-mon{font-size:8px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.ev-day{font-family:'Playfair Display',serif;font-size:19px;color:var(--white);line-height:1}
+.ev-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px}
+.ev-detail{font-size:12px;color:var(--rut-gray);line-height:1.5;font-weight:300}
+.ev-note{display:inline-block;margin-top:4px;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--scarlet)}
+
+/* Story cards */
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:36px}
+.sc{background:var(--white);overflow:hidden;cursor:pointer}
+.sc:hover .sc-img{transform:scale(1.04)}
+.sc-thumb{aspect-ratio:4/3;overflow:hidden;position:relative;background:var(--rut-gray-light)}
+.sc-img{position:absolute;inset:0;background-size:cover;background-position:center top;transition:transform .5s ease}
+.sc-play{position:absolute;bottom:10px;right:10px;width:32px;height:32px;background:var(--white);display:flex;align-items:center;justify-content:center}
+.sc-play svg{width:10px;height:10px;fill:var(--scarlet);margin-left:2px}
+.sc-body{padding:16px 18px}
+.sc-name{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.sc-role{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--scarlet);margin-bottom:7px}
+.sc-q{font-family:'Source Serif 4',serif;font-size:13px;color:var(--rut-gray);line-height:1.6;font-style:italic;font-weight:300}
+
+/* Dark section */
+.sec-dark{background:var(--ink);padding:80px 0}
+.sec-dark .eyebrow{color:rgba(255,255,255,.28)}
+.sec-dark .eyebrow::before{background:var(--scarlet)}
+.sec-dark .sec-title{color:var(--white)}
+.sec-dark .sec-body{color:rgba(255,255,255,.45)}
+
+/* Supply chain flow box */
+.sc-flow{background:var(--ink);padding:32px;display:flex;flex-direction:column;gap:0}
+.sc-flow-lbl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:16px;font-weight:500;padding-bottom:12px;border-bottom:.5px solid rgba(255,255,255,.06)}
+.sc-flow-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:.5px solid rgba(255,255,255,.05)}
+.sc-flow-item:last-child{border-bottom:none}
+.sc-flow-dot{width:34px;height:34px;background:rgba(204,0,51,.14);border:.5px solid rgba(204,0,51,.22);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.sc-flow-t{font-size:13px;font-weight:500;color:var(--white)}
+.sc-flow-s{font-size:11px;color:rgba(255,255,255,.3);margin-top:1px}
+
+/* Vid placeholder */
+.vid{width:100%;aspect-ratio:16/9;background:var(--ink);position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer;margin:36px 0;overflow:hidden}
+.vid-g{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:48px 48px}
+.vid-play{width:60px;height:60px;border:.5px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;transition:all .3s}
+.vid:hover .vid-play{border-color:var(--scarlet);background:rgba(204,0,51,.08)}
+.vid-play svg{width:17px;height:17px;fill:var(--white);margin-left:3px}
+.vid-cap{position:absolute;bottom:18px;left:22px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:500;z-index:1}
+
+/* Marquee */
+.mq{background:var(--scarlet);overflow:hidden;white-space:nowrap;padding:10px 0}
+.mq-t{display:inline-block;animation:mq-scroll 20s linear infinite}
+@keyframes mq-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.mq-t span{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);margin:0 26px}
+.mq-t .sep{color:rgba(255,255,255,.28)}
+
+/* CTA band */
+.cta-band{background:var(--scarlet);padding:68px 0}
+.cta-inner{max-width:1120px;margin:0 auto;padding:0 56px;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.cta-h{font-family:'Playfair Display',serif;font-size:clamp(38px,5vw,60px);color:var(--white);line-height:.97;font-weight:400;margin-bottom:10px}
+.cta-sub{font-size:15px;color:rgba(255,255,255,.7);line-height:1.65;font-weight:300}
+.cta-acts{display:flex;flex-direction:column;gap:9px}
+.ca{display:flex;align-items:center;justify-content:space-between;padding:15px 18px;font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all .2s;font-family:'DM Sans',sans-serif;text-align:left;letter-spacing:.01em;width:100%}
+.ca.p{background:var(--white);color:var(--scarlet)}.ca.p:hover{background:var(--scarlet-pale)}
+.ca.g{background:rgba(255,255,255,.1);color:var(--white);border:.5px solid rgba(255,255,255,.22)}.ca.g:hover{background:rgba(255,255,255,.2)}
+
+/* Page footer */
+.pfoot{padding:22px 56px;background:var(--warm);border-top:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.pfoot p{font-size:11px;color:var(--rut-gray);letter-spacing:.04em}
+.pfoot button{font-size:11px;color:var(--rut-gray);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;letter-spacing:.04em;transition:color .2s;font-family:'DM Sans',sans-serif}
+.pfoot button:hover{color:var(--ink)}
+
+/* Responsive */
+@media(max-width:960px){
+  .hub-cards,.two-col,.page-hero,.cta-inner,.outcomes,.cards-grid,.why-grid,.dm-grid,.ev-grid,.story-grid{grid-template-columns:1fr}
+  .page-hero{min-height:auto}
+  .ph-photo{min-height:55vw}
+  .stats-strip{flex-direction:column}
+  .stat-c{border-right:none;border-bottom:.5px solid var(--border)}
+  .stat-c.dark{border-color:rgba(255,255,255,.08)}
+  .wrap{padding:0 20px}
+  #site-nav{padding:0 20px}
+  .sec{padding:56px 0}
+  .cta-band{padding:48px 0}
+  .cta-inner{padding:0 20px}
+  .pfoot{flex-direction:column;gap:8px;text-align:center}
+  #page-hub{padding:56px 20px 72px}
+}
+@media(max-width:600px){
+  .dm-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="site-nav" class="">
+  <button class="nav-back" onclick="goHome()">
+    <svg viewBox="0 0 14 14"><polyline points="9,2 4,7 9,12"></polyline></svg>All Paths
+  </button>
+  <button class="nav-wordmark" onclick="goHome()">Rutgers <span>SCM</span></button>
+  <div class="nav-tabs">
+    <button class="nav-tab" id="nt-hs" onclick="goTo(&#39;hs&#39;)">High School</button>
+    <button class="nav-tab" id="nt-ad" onclick="goTo(&#39;ad&#39;)">Admitted</button>
+    <button class="nav-tab" id="nt-cur" onclick="goTo(&#39;cur&#39;)">Current Students</button>
+  </div>
+</nav>
+
+<!-- ═══ HUB ═══ -->
+<div id="page-hub" class="page active" style="display: block;">
+  <div class="hub-grid-bg"></div>
+  <div class="hub-accent-bar"></div>
+  <div class="hub-inner">
+    <p class="hub-kicker">Rutgers Business School — New Brunswick</p>
+    <h1 class="hub-h1">Supply Chain<br>Moves <em>Everything.</em></h1>
+    <p class="hub-tagline">The discipline behind every product, medicine, and delivery — now one of the most sought-after careers in business. Tell us where you are.</p>
+    <div class="hub-cards">
+
+      <button class="hub-card" onclick="goTo(&#39;hs&#39;)">
+        <div class="hc-photo">
+          <div class="hc-photo-bg" style="background-image:url(&#39;https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=700&amp;q=85&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#1a2030"></div>
+          <div class="hc-photo-dim"></div>
+          <div class="hc-float">
+            <p class="hc-float-tag">01 — High School</p>
+            <p class="hc-float-type">Curious about<br>what's next</p>
+          </div>
+        </div>
+        <div class="hc-body">
+          <p class="hc-title">I want to explore what supply chain management actually is.</p>
+          <p class="hc-desc">Discover why SCM is the most in-demand — and least understood — path in business today.</p>
+          <div class="hc-action"><span class="hc-cta">Discover SCM</span><div class="hc-arrow">→</div></div>
+        </div>
+      </button>
+
+      <button class="hub-card" onclick="goTo(&#39;ad&#39;)">
+        <div class="hc-photo">
+          <div class="hc-photo-bg" style="background-image:url(&#39;https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=700&amp;q=85&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#201015"></div>
+          <div class="hc-photo-dim"></div>
+          <div class="hc-float">
+            <p class="hc-float-tag">02 — Admitted</p>
+            <p class="hc-float-type">Ready to choose<br>my major</p>
+          </div>
+        </div>
+        <div class="hc-body">
+          <p class="hc-title">I got into RBS. Now I need to choose the right major.</p>
+          <p class="hc-desc">Finance feels safe. SCM graduates lead global operations, deploy AI, and earn more — from day one.</p>
+          <div class="hc-action"><span class="hc-cta">Make Your Choice</span><div class="hc-arrow">→</div></div>
+        </div>
+      </button>
+
+      <button class="hub-card" onclick="goTo(&#39;cur&#39;)">
+        <div class="hc-photo">
+          <div class="hc-photo-bg" style="background-image:url(&#39;https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=700&amp;q=85&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#10182a"></div>
+          <div class="hc-photo-dim"></div>
+          <div class="hc-float">
+            <p class="hc-float-tag">03 — Current RBS</p>
+            <p class="hc-float-type">Already enrolled —<br>reconsidering</p>
+          </div>
+        </div>
+        <div class="hc-body">
+          <p class="hc-title">I'm already at RBS. Can I still add or switch to SCM?</p>
+          <p class="hc-desc">Yes — and far simpler than you think. Your best career move may still be ahead of you.</p>
+          <div class="hc-action"><span class="hc-cta">See How It Works</span><div class="hc-arrow">→</div></div>
+        </div>
+      </button>
+
+    </div>
+  </div>
+  <div class="hub-foot">
+    <div class="hf-brand"><div class="hf-r">R</div><span class="hf-text">Rutgers Business School · Supply Chain Management</span></div>
+    <span style="font-size:10px;color:rgba(255,255,255,.12);letter-spacing:.06em">Design prototype</span>
+  </div>
+</div>
+
+<!-- ═══ HIGH SCHOOL ═══ -->
+<div id="page-hs" class="page inner-page" style="display: none;">
+
+  <div class="page-hero">
+    <div class="ph-photo">
+      <div class="ph-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1000&amp;q=90&amp;auto=format&amp;fit=crop&amp;crop=top&#39;)"></div>
+      <div class="ph-overlay"></div>
+      <div class="ph-float">
+        <p class="ph-float-tag">High School Student</p>
+        <h2 class="ph-float-type">Curious about<br>what moves<br>the world</h2>
+      </div>
+    </div>
+    <div class="ph-content">
+      <p class="ph-eyebrow">For High School Students</p>
+      <h1 class="ph-h1">Ever wonder how<br>things <em>get to you?</em></h1>
+      <p class="ph-body">That phone in your pocket traveled across <strong>5 continents</strong> before it reached you. The people who made that happen — efficiently, on time, at scale — are supply chain managers. Demand for them has never been higher.</p>
+      <div class="btns">
+        <button class="btn btn-s" onclick="scrollSec(&#39;hs-what&#39;)">Explore the Major</button>
+        <button class="btn btn-o" onclick="scrollSec(&#39;hs-careers&#39;)">See Career Paths</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-strip" style="border:.5px solid var(--border);border-top:none">
+    <div class="stat-c"><div class="stat-n" style="color:var(--scarlet)">#5</div><div class="stat-l">North America · Gartner 2024</div></div>
+    <div class="stat-c"><div class="stat-n">$70K</div><div class="stat-l">Average starting salary</div></div>
+    <div class="stat-c"><div class="stat-n">87%</div><div class="stat-l">Placed within 6 months</div></div>
+    <div class="stat-c"><div class="stat-n">82%</div><div class="stat-l">Placed at or before graduation</div></div>
+  </div>
+
+  <div id="hs-what" class="sec" style="background:var(--white)">
+    <div class="wrap">
+      <p class="eyebrow">What is Supply Chain Management?</p>
+      <div class="two-col" style="gap:72px">
+        <div>
+          <h2 class="sec-title">It's how the world<br>runs — <em>literally.</em></h2>
+          <p class="sec-body">Supply Chain Management is the discipline of getting things from where they're made to where they're needed. Efficiently. On time. At scale.</p>
+          <p class="sec-body" style="margin-top:14px">SCM professionals design the systems that coordinate suppliers, factories, shipping, and last-mile delivery across global networks. When supply chains work well, the world runs smoothly. When they don't, shelves go empty and prices spike.</p>
+          <div class="pq">
+            <blockquote>"Supply chain management is how business gets done — and every industry in the world depends on getting it right."</blockquote>
+            <cite>Prof. William McLaury, SCM Program Director, RBS</cite>
+          </div>
+        </div>
+        <div>
+          <div class="sc-flow">
+            <p class="sc-flow-lbl">The Supply Chain — Start to Finish</p>
+            <div class="sc-flow-item"><div class="sc-flow-dot">🌱</div><div><p class="sc-flow-t">Raw Materials &amp; Sourcing</p><p class="sc-flow-s">Farms, mines, forests worldwide</p></div></div>
+            <div class="sc-flow-item"><div class="sc-flow-dot">🏭</div><div><p class="sc-flow-t">Manufacturing &amp; Production</p><p class="sc-flow-s">Factories coordinated across countries</p></div></div>
+            <div class="sc-flow-item"><div class="sc-flow-dot">🚢</div><div><p class="sc-flow-t">Global Shipping &amp; Logistics</p><p class="sc-flow-s">Ports, aircraft, trucks, railways</p></div></div>
+            <div class="sc-flow-item"><div class="sc-flow-dot">📦</div><div><p class="sc-flow-t">Warehousing &amp; Distribution</p><p class="sc-flow-s">Smart fulfillment centers and inventory</p></div></div>
+            <div class="sc-flow-item"><div class="sc-flow-dot">🚪</div><div><p class="sc-flow-t">Last-Mile Delivery</p><p class="sc-flow-s">To your door — fast, reliably, affordably</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="vid">
+        <div class="vid-g"></div>
+        <div class="vid-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg></div>
+        <p class="vid-cap">Prof. McLaury — "Why Choose Supply Chain?" · 3 min</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="sec" style="background:var(--warm)">
+    <div class="wrap">
+      <p class="eyebrow">The Journey</p>
+      <h2 class="sec-title">Freshman year<br>to your first offer.</h2>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-dot"></div><p class="tl-when">Year 1 — Foundation</p><h3 class="tl-title">Core Business + Introduction to SCM</h3><p class="tl-desc">Alongside core RBS business courses, you take Intro to SCM — understanding how supply chains connect finance, marketing, operations, and technology.</p><span class="tl-tag">Core courses · SCM 301</span></div>
+        <div class="tl-item"><div class="tl-dot"></div><p class="tl-when">Year 2 — Specialization</p><h3 class="tl-title">Analytics, SAP, and Global Procurement</h3><p class="tl-desc">You begin working with SAP — enterprise software used by Fortune 500 companies — alongside courses in supply chain analytics, logistics planning, and global sourcing.</p><span class="tl-tag">SAP · Analytics · Global Procurement</span></div>
+        <div class="tl-item"><div class="tl-dot"></div><p class="tl-when">Year 3 — Industry Experience</p><h3 class="tl-title">Real projects with real companies</h3><p class="tl-desc">Through the Industry Client Projects course, you're assigned to a company like J&amp;J or Amazon and solve an actual supply chain challenge they face. This becomes your most powerful resume item.</p><span class="tl-tag">Industry Projects · Internship / Co-op</span></div>
+        <div class="tl-item"><div class="tl-dot"></div><p class="tl-when">Year 4 — Career Launch</p><h3 class="tl-title">Graduate with an offer in hand</h3><p class="tl-desc">82% of RBS SCM graduates have a job offer before graduation day. Average starting salary $70,000. Top companies in pharma, tech, and consulting hire directly from Rutgers every year.</p><span class="tl-tag">87% placed within 6 months · $70K avg</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="hs-careers" class="sec-dark">
+    <div class="wrap">
+      <p class="eyebrow">Where It Takes You</p>
+      <h2 class="sec-title">Careers that<br><em>shape the world.</em></h2>
+      <p class="sec-body">SCM graduates work in every industry — pharmaceutical, technology, retail, food, consulting, and more.</p>
+      <div class="cards-grid cards-dark" style="margin-top:36px">
+        <div class="cg-card-dark"><span class="cg-icon">📦</span><p class="cg-title">Supply Chain Analyst</p><p class="cg-body">Optimize inventory, model demand, and reduce costs across global operations.</p><p class="cg-sal">$65–80K</p><p class="cg-sal-l">Starting salary</p></div>
+        <div class="cg-card-dark"><span class="cg-icon">🌍</span><p class="cg-title">Global Procurement Manager</p><p class="cg-body">Source materials worldwide, negotiate contracts, manage vendor relationships across borders.</p><p class="cg-sal">$70–90K</p><p class="cg-sal-l">Starting salary</p></div>
+        <div class="cg-card-dark"><span class="cg-icon">🚚</span><p class="cg-title">Logistics Planner</p><p class="cg-body">Design distribution networks that move products from factory to customer — fast, reliably, affordably.</p><p class="cg-sal">$60–75K</p><p class="cg-sal-l">Starting salary</p></div>
+        <div class="cg-card-dark"><span class="cg-icon">🏥</span><p class="cg-title">Healthcare Ops Manager</p><p class="cg-body">Ensure hospitals and pharmacies have the medicines and devices they need, exactly when they need them.</p><p class="cg-sal">$72–95K</p><p class="cg-sal-l">Starting salary</p></div>
+        <div class="cg-card-dark"><span class="cg-icon">🤖</span><p class="cg-title">SCM Technology Lead</p><p class="cg-body">Deploy AI, automation, and digital twins to modernize how supply chains are planned and operated.</p><p class="cg-sal">$75–100K</p><p class="cg-sal-l">Starting salary</p></div>
+        <div class="cg-card-dark"><span class="cg-icon">♻️</span><p class="cg-title">Sustainability Strategist</p><p class="cg-body">Build supply chains that are ethical, low-carbon, and circular — one of the fastest-growing specializations.</p><p class="cg-sal">$70–90K</p><p class="cg-sal-l">Starting salary</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" style="background:var(--white)">
+    <div class="wrap">
+      <p class="eyebrow">Student Voices</p>
+      <h2 class="sec-title">They didn't know<br>what SCM was either.</h2>
+      <div class="story-grid">
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;)"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Priya Sharma</p><p class="sc-role">SCM Student, '27</p><p class="sc-q">"I came in thinking I'd do marketing. Then I took Intro to SCM and everything clicked. Now I can't imagine doing anything else."</p></div></div>
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;)"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Marcus Thompson</p><p class="sc-role">SCM Student, '26</p><p class="sc-q">"My parents thought supply chain was just trucking. After my Amazon internship, they understood why it's one of the hottest careers in business."</p></div></div>
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;)"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Aisha Williams</p><p class="sc-role">Graduating Senior, '25</p><p class="sc-q">"I'm going to J&amp;J after graduation. The SAP training, the internship, the network — the program delivered exactly what it promised."</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" style="background:var(--warm)">
+    <div class="wrap">
+      <p class="eyebrow">Events for High School Students</p>
+      <h2 class="sec-title">Come see it<br><em>for yourself.</em></h2>
+      <div style="margin-top:28px">
+        <div style="display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-bottom:.5px solid var(--border)"><div class="ev-dt"><div class="ev-mon">Jun</div><div class="ev-day">12</div></div><div><p class="ev-title">SCM Discovery Day — New Brunswick Campus</p><p class="ev-detail">Tour the campus, sit in on a class, and meet current students and faculty. No application required.</p><span class="ev-note">In-Person · Free</span></div></div>
+        <div style="display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-bottom:.5px solid var(--border)"><div class="ev-dt"><div class="ev-mon">Jul</div><div class="ev-day">08</div></div><div><p class="ev-title">Virtual Info Session — "What is SCM?"</p><p class="ev-detail">Live Q&amp;A with SCM faculty and current students. 30 minutes, open to all high school students.</p><span class="ev-note">Virtual · Free · Register Now</span></div></div>
+        <div style="display:flex;align-items:flex-start;gap:18px;padding:20px 0"><div class="ev-dt"><div class="ev-mon">Nov</div><div class="ev-day">14</div></div><div><p class="ev-title">SC Summit — High School Guest Day</p><p class="ev-detail">Selected high school students invited to the annual SC Summit — industry panels, alumni stories, career expo.</p><span class="ev-note">In-Person · Application Required</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <div class="cta-inner">
+      <div><h2 class="cta-h">Ready to see where SCM takes you?</h2><p class="cta-sub">Explore the program, meet an advisor, or watch a 3-minute video. Start anywhere.</p></div>
+      <div class="cta-acts">
+        <button class="ca p" onclick="scrollSec(&#39;hs-what&#39;)">Explore the Program →</button>
+        <button class="ca g" onclick="scrollSec(&#39;hs-careers&#39;)">View Career Paths →</button>
+        <button class="ca g" onclick="goHome()">← Back to All Paths</button>
+      </div>
+    </div>
+  </div>
+  <div class="pfoot"><p>© 2025 Rutgers Business School · Supply Chain Management · Prototype</p><button onclick="goHome()">← All Paths</button></div>
+</div>
+
+<!-- ═══ ADMITTED ═══ -->
+<div id="page-ad" class="page inner-page">
+
+  <div class="mq"><div class="mq-t"><span>Changemaker</span><span class="sep">·</span><span>Last-Mile Innovator</span><span class="sep">·</span><span>Global Operations</span><span class="sep">·</span><span>AI + Supply Chain</span><span class="sep">·</span><span>#5 in North America</span><span class="sep">·</span><span>82% Placed at Graduation</span><span class="sep">·</span><span>$70K Starting Salary</span><span class="sep">·</span><span>Changemaker</span><span class="sep">·</span><span>Last-Mile Innovator</span><span class="sep">·</span><span>Global Operations</span><span class="sep">·</span><span>AI + Supply Chain</span><span class="sep">·</span><span>#5 in North America</span><span class="sep">·</span><span>82% Placed at Graduation</span><span class="sep">·</span><span>$70K Starting Salary</span><span class="sep">·</span></div></div>
+
+  <div class="page-hero">
+    <div class="ph-photo">
+      <div class="ph-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1000&amp;q=90&amp;auto=format&amp;fit=crop&amp;crop=top&#39;)"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.1),transparent)"></div>
+      <div class="ph-float">
+        <p class="ph-float-tag">Admitted Student</p>
+        <h2 class="ph-float-type">Ready to make<br>the decision<br>that matters</h2>
+      </div>
+    </div>
+    <div class="ph-content" style="background:var(--ink)">
+      <p class="ph-eyebrow" style="color:rgba(255,255,255,.3)"><span style="background:var(--scarlet);width:20px;height:1px;display:inline-block;vertical-align:middle;margin-right:10px"></span>For Admitted Students</p>
+      <h1 class="ph-h1" style="color:var(--white)">Don't just<br><em>follow the crowd.</em></h1>
+      <p class="ph-body" style="color:rgba(255,255,255,.48)">Finance is the default. SCM is the <strong style="color:rgba(255,255,255,.9)">strategic</strong> choice. While others crowd into the same major, SCM graduates lead global operations, deploy AI, and solve real problems — from day one.</p>
+      <div class="btns">
+        <button class="btn btn-s" onclick="scrollSec(&#39;ad-compare&#39;)">SCM vs Finance</button>
+        <button class="btn btn-ow" onclick="scrollSec(&#39;ad-outcomes&#39;)">Where Grads Land</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-strip" style="background:var(--ink);border:.5px solid rgba(255,255,255,.07);border-top:none">
+    <div class="stat-c dark"><div class="stat-n">#5</div><div class="stat-l">North America · Gartner 2024</div></div>
+    <div class="stat-c dark"><div class="stat-n">82%</div><div class="stat-l">Placed at or before graduation</div></div>
+    <div class="stat-c dark"><div class="stat-n">$70K</div><div class="stat-l">Average starting salary</div></div>
+    <div class="stat-c dark"><div class="stat-n">87%</div><div class="stat-l">Placed within 6 months</div></div>
+  </div>
+
+  <div class="sec" style="background:var(--white)">
+    <div class="wrap">
+      <p class="eyebrow">Why SCM, Not Finance</p>
+      <div class="two-col">
+        <div>
+          <h2 class="sec-title">Be on the frontline<br>of <em>what's next.</em></h2>
+          <p class="sec-body">Supply chain isn't logistics. It's the intersection of AI, global strategy, sustainability, and operations — and the companies solving tomorrow's biggest problems need people who understand all of it.</p>
+          <p class="sec-body" style="margin-top:14px">While Finance students compete in an oversaturated field, SCM graduates step into roles where they're the most valuable person in the room — because there simply aren't enough of them.</p>
+          <div class="pq">
+            <blockquote>"The last mile is being reinvented by AI routing, autonomous systems, and micro-fulfillment. Rutgers trains you to design what comes next."</blockquote>
+            <cite>SCM Department, Rutgers Business School</cite>
+          </div>
+        </div>
+        <div class="cards-grid" style="margin-top:0;align-self:start">
+          <div class="cg-card"><span class="cg-icon">🤖</span><p class="cg-title">Frontier of AI + Operations</p><p class="cg-body">Autonomous warehouses, predictive analytics, digital twins. SCM is where AI meets real business impact.</p></div>
+          <div class="cg-card"><span class="cg-icon">🌍</span><p class="cg-title">Operate Globally from Day One</p><p class="cg-body">Design systems spanning continents — sourcing, vendor management, coordinated delivery across borders.</p></div>
+          <div class="cg-card"><span class="cg-icon">⚡</span><p class="cg-title">Visible Impact Immediately</p><p class="cg-body">Unlike Finance roles that model scenarios for years, SCM puts you in rooms making real operational decisions immediately.</p></div>
+          <div class="cg-card"><span class="cg-icon">♻️</span><p class="cg-title">Lead the Sustainability Revolution</p><p class="cg-body">Every major company needs ethical, low-carbon, circular supply chains. SCM professionals are the architects.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="ad-compare" class="sec" style="background:var(--warm)">
+    <div class="wrap">
+      <p class="eyebrow">An Honest Comparison</p>
+      <h2 class="sec-title">SCM vs Finance —<br><em>what nobody tells you.</em></h2>
+      <p class="sec-body">Both are strong majors. They lead to very different careers.</p>
+      <table class="ctbl">
+        <thead><tr><th style="width:36%">Category</th><th class="s" style="width:32%">Supply Chain Management</th><th class="o" style="width:32%">Finance</th></tr></thead>
+        <tbody>
+          <tr><td class="topic">Industries you can enter</td><td class="sv"><span class="good">Every industry — pharma, tech, retail, food, consulting</span></td><td class="ov">Primarily banking, finance, insurance</td></tr>
+          <tr><td class="topic">Job market competition</td><td class="sv"><span class="good">Talent shortage — companies actively recruiting</span></td><td class="ov">Highly saturated graduate pool</td></tr>
+          <tr><td class="topic">Day-one impact</td><td class="sv"><span class="good">Managing real operations from week one</span></td><td class="ov">Entry-level modeling, 2–3yr ramp to strategy</td></tr>
+          <tr><td class="topic">Technology &amp; AI skills</td><td class="sv"><span class="good">SAP, analytics, digital twins, AI tools</span></td><td class="ov">Excel, Bloomberg, financial modeling</td></tr>
+          <tr><td class="topic">Global operations</td><td class="sv"><span class="good">Embedded from Year 1</span></td><td class="ov">Limited to international finance electives</td></tr>
+          <tr><td class="topic">Average starting salary</td><td class="sv">$70,000</td><td class="ov">$65,000–$72,000</td></tr>
+          <tr><td class="topic">Placement at graduation</td><td class="sv"><span class="good">82% placed at or before graduation</span></td><td class="ov">Varies by specialization</td></tr>
+          <tr><td class="topic">Double major flexibility</td><td class="sv"><span class="good">Shared credits with Finance, Marketing, BAIT</span></td><td class="ov">Standalone or limited combinations</td></tr>
+          <tr><td class="topic">Sustainability in curriculum</td><td class="sv"><span class="good">Core required component</span></td><td class="ov">Elective / optional</td></tr>
+          <tr><td class="topic">National ranking (Gartner 2024)</td><td class="sv"><span class="good">#5 in North America</span></td><td class="ov">N/A</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px;color:var(--rut-gray);margin-top:10px">Note: SCM + Finance is also a powerful double major combination — shared elective credits make it achievable.</p>
+    </div>
+  </div>
+
+  <div id="ad-outcomes" class="sec-dark">
+    <div class="wrap">
+      <p class="eyebrow">Where Graduates Land</p>
+      <h2 class="sec-title">Your classmates,<br><em>two years out.</em></h2>
+      <div class="outcomes">
+        <div class="oc"><p class="oc-co">Johnson &amp; Johnson</p><p class="oc-name">Aisha Williams, '23</p><p class="oc-role">Supply Chain Analyst → Senior (18 months)</p><p class="oc-q">"I was managing a $50M inventory portfolio in my first year. My Rutgers SAP training meant I was productive from week one."</p><span class="oc-sal">$72K starting</span></div>
+        <div class="oc"><p class="oc-co">Amazon</p><p class="oc-name">Daniel Park, '23</p><p class="oc-role">Operations Manager, Fulfillment</p><p class="oc-q">"The AI and analytics courses at Rutgers were more advanced than what most of my colleagues had studied."</p><span class="oc-sal">$75K + bonus</span></div>
+        <div class="oc"><p class="oc-co">Merck</p><p class="oc-name">Sofia Reyes, '22</p><p class="oc-role">Global Procurement Lead</p><p class="oc-q">"Double-majoring in SCM and Finance made me the most versatile candidate in my cohort — and I got the offer I wanted."</p><span class="oc-sal">$78K starting</span></div>
+        <div class="oc"><p class="oc-co">Wayfair</p><p class="oc-name">Jalen Brooks, '23</p><p class="oc-role">Last Mile Operations Lead</p><p class="oc-q">"Last mile is the hottest area in e-commerce. Rutgers prepared me for the exact operational complexity it requires."</p><span class="oc-sal">$70K + equity</span></div>
+        <div class="oc"><p class="oc-co">L'Oréal</p><p class="oc-name">Rachel Kim, '22</p><p class="oc-role">Sustainability &amp; SC Coordinator</p><p class="oc-q">"Sustainability in supply chain is exploding. Rutgers already had it in the curriculum — I was ahead of my peers on arrival."</p><span class="oc-sal">$68K starting</span></div>
+        <div class="oc"><p class="oc-co">Deloitte</p><p class="oc-name">Omar Hassan, '23</p><p class="oc-role">Supply Chain Consultant</p><p class="oc-q">"Consulting firms are desperate for SCM grads. Every client asks about supply chain resilience. I had three offers."</p><span class="oc-sal">$80K + signing</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" style="background:var(--white)">
+    <div class="wrap">
+      <p class="eyebrow">From Students Like You</p>
+      <h2 class="sec-title">They chose SCM.<br><em>Here's what happened.</em></h2>
+      <div class="story-grid">
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#c8c0b8"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Marcus T.</p><p class="sc-role">Junior, SCM + Finance</p><p class="sc-q">"My advisor told me SCM + Finance is the most sought-after double major right now. She wasn't wrong — I had two internship offers before junior year."</p></div></div>
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#d0c8c0"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Priya S.</p><p class="sc-role">Senior, SCM + BAIT</p><p class="sc-q">"I'm building predictive models for a supply chain company as a senior intern. The AI curriculum here is genuinely ahead of other programs."</p></div></div>
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#c0c8c0"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Kevin L.</p><p class="sc-role">Incoming Freshman, '29</p><p class="sc-q">"I came to orientation thinking Finance. After the SCM info session, I changed my mind on the spot. The career data spoke for itself."</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" style="background:var(--warm)">
+    <div class="wrap">
+      <p class="eyebrow">How to Declare SCM</p>
+      <h2 class="sec-title">Four steps to<br><em>making it official.</em></h2>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div><p class="step-title">Attend the SCM Info Session at Orientation</p><p class="step-desc">Faculty and current students host sessions every Tuesday/Thursday during summer orientation. Come with questions — no commitment required.</p><span class="step-when">June–August · Orientation Days</span></div></div>
+        <div class="step"><div class="step-n">2</div><div><p class="step-title">Meet 1:1 with an SCM Advisor</p><p class="step-desc">Schedule during orientation week. They'll walk you through the curriculum, answer your concerns, and explain what SCM offers versus other majors.</p><span class="step-when">During Orientation · Free</span></div></div>
+        <div class="step"><div class="step-n">3</div><div><p class="step-title">Declare via the RBS Student Portal</p><p class="step-desc">Once decided, declaring SCM takes approximately 10 minutes online. Your advisor can guide you through it in person if needed.</p><span class="step-when">Same Day or Within First Week</span></div></div>
+        <div class="step"><div class="step-n">4</div><div><p class="step-title">Attend the Fall SC Summit in November</p><p class="step-desc">The SC Summit connects you with industry professionals, alumni, and hiring companies. Past students received internship and full-time offers at the event itself.</p><span class="step-when">November · Annual Event</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <div class="cta-inner">
+      <div><h2 class="cta-h">Don't choose default. Choose SCM.</h2><p class="cta-sub">You earned your spot at RBS. Make the major decision count — it shapes the next four years.</p></div>
+      <div class="cta-acts">
+        <button class="ca p" onclick="scrollSec(&#39;ad-compare&#39;)">Schedule an Advising Session →</button>
+        <button class="ca g" onclick="scrollSec(&#39;ad-outcomes&#39;)">Register for Orientation Info Session →</button>
+        <button class="ca g" onclick="goHome()">← Back to All Paths</button>
+      </div>
+    </div>
+  </div>
+  <div class="pfoot"><p>© 2025 Rutgers Business School · Supply Chain Management · Prototype</p><button onclick="goHome()">← All Paths</button></div>
+</div>
+
+<!-- ═══ CURRENT STUDENTS ═══ -->
+<div id="page-cur" class="page inner-page" style="display: none;">
+
+  <div class="page-hero">
+    <div class="ph-photo">
+      <div class="ph-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1000&amp;q=90&amp;auto=format&amp;fit=crop&amp;crop=top&#39;)"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,.04),transparent)"></div>
+      <div class="ph-float">
+        <p class="ph-float-tag">Current RBS Student</p>
+        <h2 class="ph-float-type">Already here —<br>and reconsidering<br>what's possible</h2>
+      </div>
+    </div>
+    <div class="ph-content">
+      <p class="ph-eyebrow">For Current RBS Students</p>
+      <h1 class="ph-h1">Your best career<br>move <em>isn't gone.</em></h1>
+      <p class="ph-body">Already enrolled but not in SCM? Whether you want to <strong>switch your major</strong> or <strong>add SCM as a second</strong> — it's more achievable than you think, and the payoff is substantial.</p>
+      <div class="btns">
+        <button class="btn btn-s" onclick="scrollSec(&#39;cur-switch&#39;)">How to Switch →</button>
+        <button class="btn btn-o" onclick="scrollSec(&#39;cur-compare&#39;)">SCM vs My Major</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-strip" style="border:.5px solid var(--border);border-top:none">
+    <div class="stat-c"><div class="stat-n" style="color:var(--scarlet)">#5</div><div class="stat-l">North America · Gartner 2024</div></div>
+    <div class="stat-c"><div class="stat-n">82%</div><div class="stat-l">Placed at or before graduation</div></div>
+    <div class="stat-c"><div class="stat-n">$70K</div><div class="stat-l">Average starting salary</div></div>
+    <div class="stat-c"><div class="stat-n">28%</div><div class="stat-l">Projected job growth (BLS)</div></div>
+  </div>
+
+  <div class="sec" style="background:var(--white)">
+    <div class="wrap">
+      <p class="eyebrow">Is SCM right for you?</p>
+      <div class="two-col">
+        <div>
+          <h2 class="sec-title">A quick<br><em>self-check.</em></h2>
+          <p class="sec-body">If any of these resonate, SCM may be a better fit than what you're currently studying.</p>
+          <div class="cl">
+            <div class="cl-item"><div class="cl-icon">💡</div><div><p class="cl-title">I want a career with global scope</p><p class="cl-sub">SCM puts you in rooms making decisions affecting worldwide operations from day one</p></div><span class="cl-badge b-red">SCM delivers</span></div>
+            <div class="cl-item"><div class="cl-icon">🤖</div><div><p class="cl-title">I'm excited by AI and automation</p><p class="cl-sub">SCM is where AI meets real business — SAP, analytics, digital twins, all required</p></div><span class="cl-badge b-red">Built in</span></div>
+            <div class="cl-item"><div class="cl-icon">📊</div><div><p class="cl-title">I want strong placement and real salary</p><p class="cl-sub">82% placed at or before graduation, $70K average starting salary</p></div><span class="cl-badge b-red">82% at grad</span></div>
+            <div class="cl-item"><div class="cl-icon">🌿</div><div><p class="cl-title">Sustainability matters to me in business</p><p class="cl-sub">Sustainable supply chains are a core curriculum component — not just an elective</p></div><span class="cl-badge b-gray">Core course</span></div>
+            <div class="cl-item"><div class="cl-icon">🔄</div><div><p class="cl-title">I'm a freshman or sophomore</p><p class="cl-sub">The earlier you switch or add SCM, the easier — most credits still count</p></div><span class="cl-badge b-gray">Easy switch</span></div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:&#39;Playfair Display&#39;,serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:22px;line-height:1.2">Why students switch — in their own words.</h3>
+          <div class="persp-stack">
+            <div class="pi"><p class="pi-label">Finance → SCM</p><p class="pi-q">"I switched in my sophomore year. The credit overlap was significant — barely lost any time. And I walked into a $72K offer while Finance classmates were still interviewing."</p><p class="pi-name">Marcus T., SCM + Finance, '26</p></div>
+            <div class="pi"><p class="pi-label">Marketing → SCM</p><p class="pi-q">"Marketing was enjoyable but the career path was unclear. SCM showed me exactly where I'd be in three years — and the program actually delivered on that."</p><p class="pi-name">Aisha W., SCM Major, '25</p></div>
+            <div class="pi"><p class="pi-label">Management → SCM + Management</p><p class="pi-q">"I added SCM as a double major in my junior year. The shared elective policy meant I only needed three extra courses. Best decision of my time at RBS."</p><p class="pi-name">Daniel P., SCM + Management, '25</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" style="background:var(--warm)">
+    <div class="wrap">
+      <p class="eyebrow">Why Students Switch</p>
+      <h2 class="sec-title">The reasons keep<br><em>stacking up.</em></h2>
+      <div class="why-grid">
+        <div class="wc"><span class="wc-icon">🏆</span><p class="wc-title">Less competition, more opportunity</p><p class="wc-body">Finance has thousands competing for the same analyst roles. SCM graduates face a talent shortage — companies are actively hunting for them.</p></div>
+        <div class="wc"><span class="wc-icon">🌍</span><p class="wc-title">Every industry needs SCM talent</p><p class="wc-body">Pharma, tech, retail, food, consulting — every sector runs on supply chains. Finance narrows options. SCM opens all of them.</p></div>
+        <div class="wc"><span class="wc-icon">🤖</span><p class="wc-title">AI + operations — fastest-growing skill</p><p class="wc-body">Companies are investing billions in supply chain AI. Rutgers trains you to deploy these tools — a skillset Finance or Marketing majors don't have.</p></div>
+        <div class="wc"><span class="wc-icon">⚡</span><p class="wc-title">Real impact from day one</p><p class="wc-body">SCM graduates manage real inventory and real global vendors immediately. Finance entry roles typically spend the first two years in spreadsheets.</p></div>
+        <div class="wc"><span class="wc-icon">🔗</span><p class="wc-title">Double major-friendly by design</p><p class="wc-body">SCM shares elective credits with Finance, Marketing, Accounting, and BAIT. Adding SCM often requires far fewer extra courses than students expect.</p></div>
+        <div class="wc"><span class="wc-icon">📈</span><p class="wc-title">One of the fastest-growing fields</p><p class="wc-body">BLS projects 28% job growth in SCM-related roles over the next decade. Post-pandemic demand for supply chain expertise exploded — and hasn't slowed.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cur-compare" class="sec-dark">
+    <div class="wrap">
+      <p class="eyebrow">SCM vs Other RBS Majors</p>
+      <h2 class="sec-title">What you gain by<br><em>adding or switching.</em></h2>
+      <p class="sec-body">This isn't about saying other majors are inferior — it's an honest look at what SCM adds.</p>
+      <div style="margin-top:36px;border:.5px solid rgba(255,255,255,.07);overflow:hidden">
+        <table class="ctbl">
+          <thead><tr>
+            <th style="background:rgba(255,255,255,.03);color:rgba(255,255,255,.35);border-bottom:.5px solid rgba(255,255,255,.07)">What you're looking for</th>
+            <th style="background:rgba(204,0,51,.1);color:var(--scarlet);border-bottom:.5px solid rgba(255,255,255,.07);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:11px 16px">SCM</th>
+            <th style="background:rgba(255,255,255,.03);color:rgba(255,255,255,.22);border-bottom:.5px solid rgba(255,255,255,.07);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:11px 16px">Finance / Marketing</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="color:rgba(255,255,255,.65);border-color:rgba(255,255,255,.06);font-weight:500;padding:12px 16px;font-size:13px">Cross-industry career options</td><td style="background:rgba(204,0,51,.06);color:var(--white);border-color:rgba(255,255,255,.06);padding:12px 16px;font-size:13px"><span class="good">All industries</span></td><td style="background:transparent;color:rgba(255,255,255,.28);border-color:rgba(255,255,255,.06);padding:12px 16px;font-size:13px">Narrower scope</td></tr>
+            <tr><td style="color:rgba(255,255,255,.65);border-color:rgba(255,255,255,.06);font-weight:500;padding:12px 16px;font-size:13px">AI / Tech in curriculum</td><td style="background:rgba(204,0,51,.06);color:var(--white);border-color:rgba(255,255,255,.06);padding:12px 16px;font-size:13px"><span class="good">SAP, analytics, AI — required</span></td><td style="background:transparent;color:rgba(255,255,255,.28);border-color:rgba(255,255,255,.06);padding:12px 16px;font-size:13px">Limited or elective</td></tr>
+            <tr><td style="color:rgba(255,255,255,.65);border-color:rgba(255,255,255,.06);font-weight:500;padding:12px 16px;font-size:13px">Talent demand vs. supply</td><td style="background:rgba(204,0,51,.06);color:var(--white);border-color:rgba(255,255,255,.06);padding:12px 16px;font-size:13px"><span class="good">Shortage — you're in demand</span></td><td style="background:transparent;color:rgba(255,255,255,.28);border-color:rgba(255,255,255,.06);padding:12px 16px;font-size:13px">Oversupplied field</td></tr>
+            <tr><td style="color:rgba(255,255,255,.65);border-color:rgba(255,255,255,.06);font-weight:500;padding:12px 16px;font-size:13px">Placement at graduation</td><td style="background:rgba(204,0,51,.06);color:var(--white);border-color:rgba(255,255,255,.06);padding:12px 16px;font-size:13px"><span class="good">82%</span></td><td style="background:transparent;color:rgba(255,255,255,.28);border-color:rgba(255,255,255,.06);padding:12px 16px;font-size:13px">Varies widely</td></tr>
+            <tr><td style="color:rgba(255,255,255,.65);border-color:rgba(255,255,255,.06);font-weight:500;padding:12px 16px;font-size:13px">Sustainability built in</td><td style="background:rgba(204,0,51,.06);color:var(--white);border-color:rgba(255,255,255,.06);padding:12px 16px;font-size:13px"><span class="good">Required core courses</span></td><td style="background:transparent;color:rgba(255,255,255,.28);border-color:rgba(255,255,255,.06);padding:12px 16px;font-size:13px">Elective</td></tr>
+            <tr><td style="color:rgba(255,255,255,.65);font-weight:500;padding:12px 16px;font-size:13px">Double major with SCM</td><td style="background:rgba(204,0,51,.06);color:var(--white);padding:12px 16px;font-size:13px"><span class="good">Shared credits available</span></td><td style="background:transparent;color:rgba(255,255,255,.28);padding:12px 16px;font-size:13px">Can combine with SCM</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="cur-switch" class="sec" style="background:var(--white)">
+    <div class="wrap">
+      <p class="eyebrow">How to Switch or Add SCM</p>
+      <div class="two-col">
+        <div>
+          <h2 class="sec-title">Simpler than<br><em>you think.</em></h2>
+          <p class="sec-body">Whether switching entirely or adding SCM as a second major, here's the exact process at RBS.</p>
+          <div class="steps">
+            <div class="step"><div class="step-n">1</div><div><p class="step-title">Attend an SCM Info Session</p><p class="step-desc">Every Fall and Spring semester — 30 minutes with faculty, students, and advisors. No commitment required.</p><span class="step-when">Fall &amp; Spring · Open to all</span></div></div>
+            <div class="step"><div class="step-n">2</div><div><p class="step-title">Meet with the SCM Undergraduate Advisor</p><p class="step-desc">They'll audit your transcript, map which credits transfer, and build a plan — almost always requiring fewer extra courses than students expect.</p><span class="step-when">Any time · Contact SCM dept.</span></div></div>
+            <div class="step"><div class="step-n">3</div><div><p class="step-title">Submit Major Change or Declaration Form</p><p class="step-desc">Major Change form (switch) or Second Major Declaration (add SCM). Both processed online in ~10 minutes — same semester is fine.</p><span class="step-when">Online · RBS Student Portal</span></div></div>
+            <div class="step"><div class="step-n">4</div><div><p class="step-title">Enroll in Intro to SCM 301</p><p class="step-desc">Offered every semester, designed for all backgrounds. Most switchers describe it as the course that made everything click.</p><span class="step-when">Every semester · All RBS welcome</span></div></div>
+            <div class="step"><div class="step-n">5</div><div><p class="step-title">Attend the November SC Summit</p><p class="step-desc">Connects you directly with industry and hiring companies. Past students received internship and full-time offers at the event. Worth 2 exam-credit points.</p><span class="step-when">Every November</span></div></div>
+          </div>
+        </div>
+        <div class="info-stack" style="align-self:start">
+          <div class="ib"><p class="ib-title">⏰ When Should I Switch?</p><p class="ib-body">The best time is as a freshman or sophomore — maximum flexibility, minimal credit loss. But juniors can absolutely add SCM as a double major.</p><ul class="ib-list"><li>Freshman: Full flexibility — all pathways open</li><li>Sophomore: Still easy — most credits count</li><li>Junior: Double major is the recommended path</li><li>Senior: Speak with an advisor — options may exist</li></ul></div>
+          <div class="ib"><p class="ib-title">📋 Which Credits Transfer?</p><p class="ib-body">All RBS core courses count. Certain electives from your current major may double-count via the shared elective policy.</p><ul class="ib-list"><li>All RBS core courses: count in full</li><li>Finance: Treasury Management may double-count</li><li>Marketing: Marketing Research may double-count</li><li>BAIT: Fundamentals of SCM with SAP may double-count</li><li>Management: Negotiations may double-count</li></ul></div>
+          <div class="ib"><p class="ib-title">📞 Contact the SCM Department</p><ul class="ib-list"><li>Email: scmadvising@business.rutgers.edu</li><li>Office: RBS–NB, Janice H. Levin Building</li><li>Walk-in hours: Mon–Fri, 9am–4pm</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" style="background:var(--warm)">
+    <div class="wrap">
+      <p class="eyebrow">Double Major Options</p>
+      <h2 class="sec-title">SCM + _____ =<br><em>your strongest combination.</em></h2>
+      <p class="sec-body">SCM is designed to pair with other RBS majors — shared elective credits make the double major more achievable than expected.</p>
+      <div class="dm-grid">
+        <div class="dm-c"><div class="dm-icon">📈</div><p class="dm-title">SCM + Finance</p><p class="dm-desc">Supply chain finance and capital allocation. Most in-demand combo in pharma and consulting.</p><span class="dm-tag">Shared: Treasury Mgmt</span></div>
+        <div class="dm-c"><div class="dm-icon">📣</div><p class="dm-title">SCM + Marketing</p><p class="dm-desc">Channel coordination and demand-driven supply chain. Ideal for consumer goods and retail.</p><span class="dm-tag">Shared: Marketing Research</span></div>
+        <div class="dm-c"><div class="dm-icon">🤖</div><p class="dm-title">SCM + BAIT</p><p class="dm-desc">AI-powered operations and enterprise analytics. The future of supply chain is data — this combo leads it.</p><span class="dm-tag">Shared: SCM with SAP</span></div>
+        <div class="dm-c"><div class="dm-icon">🤝</div><p class="dm-title">SCM + Management</p><p class="dm-desc">Leadership, negotiation, and operational expertise combined. Perfect for management career tracks.</p><span class="dm-tag">Shared: Negotiations</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" style="background:var(--white)">
+    <div class="wrap">
+      <p class="eyebrow">Upcoming Events</p>
+      <h2 class="sec-title">Your next step is<br><em>one event away.</em></h2>
+      <div class="ev-grid">
+        <div class="ev-c"><div class="ev-dt"><div class="ev-mon">Sep</div><div class="ev-day">09</div></div><div><p class="ev-title">Fall SCM Info Session</p><p class="ev-detail">Faculty, students, and advisors. RBS, Room 212. Open to all RBS students.</p><span class="ev-note">Register · Free</span></div></div>
+        <div class="ev-c"><div class="ev-dt"><div class="ev-mon">Oct</div><div class="ev-day">02</div></div><div><p class="ev-title">Open Advising Day — SCM Dept.</p><p class="ev-detail">Walk-in advising sessions. No appointment needed to review your switch options.</p><span class="ev-note">Walk-In Welcome</span></div></div>
+        <div class="ev-c"><div class="ev-dt"><div class="ev-mon">Nov</div><div class="ev-day">14</div></div><div><p class="ev-title">SC Summit 2025</p><p class="ev-detail">Annual industry conference. Non-SCM students welcome. 2pts toward your exam grade.</p><span class="ev-note">Register Now</span></div></div>
+        <div class="ev-c"><div class="ev-dt"><div class="ev-mon">Nov</div><div class="ev-day">20</div></div><div><p class="ev-title">Major Switch Deadline — Spring 2026</p><p class="ev-detail">Last day to submit major change or second major declaration for Spring 2026 enrollment.</p><span class="ev-note">Check RBS Portal</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" style="background:var(--warm)">
+    <div class="wrap">
+      <p class="eyebrow">From Students Who Switched</p>
+      <h2 class="sec-title">They were in your seat.<br><em>Here's where they are now.</em></h2>
+      <div class="story-grid">
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#c8c4bc"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Sofia Reyes</p><p class="sc-role">SCM + Finance, '25 → Merck</p><p class="sc-q">"My advisor showed me I only needed four extra courses. I graduate with two majors and an offer from Merck. Best decision I made at RBS."</p></div></div>
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#c0c8c4"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Marcus Thompson</p><p class="sc-role">SCM + BAIT, '26</p><p class="sc-q">"I added SCM in my junior year — advisor made it work without delaying graduation. The SAP certification alone changed every interview I had."</p></div></div>
+        <div class="sc"><div class="sc-thumb"><div class="sc-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&amp;q=80&amp;auto=format&amp;fit=crop&amp;crop=top&#39;);background-color:#c4ccc8"></div><div class="sc-play"><svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"></polygon></svg></div></div><div class="sc-body"><p class="sc-name">Priya Sharma</p><p class="sc-role">SCM Major, '27</p><p class="sc-q">"I switched from Marketing at end of freshman year. Didn't lose a single credit. The program is built to welcome switchers."</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <div class="cta-inner">
+      <div><h2 class="cta-h">The switch starts with one meeting.</h2><p class="cta-sub">Book 30 minutes with an SCM advisor. They'll show you exactly what switching looks like for your transcript — no guessing, no commitment required.</p></div>
+      <div class="cta-acts">
+        <button class="ca p" onclick="scrollSec(&#39;cur-switch&#39;)">Book an SCM Advising Session →</button>
+        <button class="ca g" onclick="scrollSec(&#39;cur-compare&#39;)">Register for Fall Info Session →</button>
+        <button class="ca g" onclick="goHome()">← Back to All Paths</button>
+      </div>
+    </div>
+  </div>
+  <div class="pfoot"><p>© 2025 Rutgers Business School · Supply Chain Management · Prototype</p><button onclick="goHome()">← All Paths</button></div>
+</div>
+
+<script>
+const NAV = document.getElementById('site-nav');
+let cur = 'hub';
+const TABS = {hs:'nt-hs',ad:'nt-ad',cur:'nt-cur'};
+
+function goTo(id) {
+  if (id === cur) return;
+  const fromEl = document.getElementById('page-' + cur);
+  const toEl   = document.getElementById('page-' + id);
+  fromEl.classList.add('fading');
+  setTimeout(() => {
+    fromEl.classList.remove('active','fading');
+    fromEl.style.display = 'none';
+    toEl.style.display = 'block';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      toEl.classList.add('active');
+      window.scrollTo({top:0,behavior:'instant'});
+    }));
+  }, 320);
+  NAV.className = id === 'hub' ? '' : 'show';
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('on'));
+  if (TABS[id]) document.getElementById(TABS[id]).classList.add('on');
+  cur = id;
+}
+function goHome() { goTo('hub'); }
+function scrollSec(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+
+
+</body></html>
