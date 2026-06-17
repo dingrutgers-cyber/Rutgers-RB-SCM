@@ -118,6 +118,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 .aphero .sub b{color:#fff;font-weight:600}
 .aphero-actions{display:flex;gap:.7rem;flex-wrap:wrap}
 .aphero-card{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--line-d);box-shadow:0 26px 60px -30px rgba(0,0,0,.7)}
+.aphero-pic{aspect-ratio:4/3;background:#1a1a1a center top/cover no-repeat}
 .aphero-card .lbl{position:absolute;top:0;left:0;z-index:3;font-family:var(--f-ui);font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;background:var(--scarlet);color:#fff;padding:.38rem .75rem}
 
 /* stat band */
@@ -301,7 +302,7 @@ footer b{color:#E6DDCF}
       <button data-go="admitted">Admitted</button>
       <button data-go="current">Current Students</button>
     </div>
-    <a class="btn btn-primary" style="padding:.5rem 1.05rem" href="https://www.business.rutgers.edu/undergraduate/supply-chain-management" target="_blank" rel="noopener">The Major</a>
+    <a class="btn btn-primary" style="padding:.5rem 1.05rem" href="https://www.business.rutgers.edu/undergraduate-new-brunswick/supply-chain-management" target="_blank" rel="noopener">The Major</a>
   </div>
 </nav>
 
@@ -380,13 +381,13 @@ const BASE_STATS=[{n:'#5',l:'North America · Gartner 2024'},{n:'$78K',l:'Averag
 
 /* ---- HUB cards + ticker + mini eps ---- */
 const HUBCARDS=[
-  {go:'hs',num:'01 · High School',k:'Curious about what\u2019s next',q:'\u201CI want to explore what supply chain management actually is.\u201D',p:'Discover why SCM is the most in-demand yet least understood path in business today.',cta:'Discover SCM',pic:'1_a5zg9ncx'},
-  {go:'admitted',num:'02 · Admitted',k:'Ready to choose my major',q:'\u201CI got into RBS. Now I need to choose the right major.\u201D',p:'SCM graduates lead global operations, deploy AI, and earn more — from day one.',cta:'Make your choice',pic:'1_270ol39j'},
-  {go:'current',num:'03 · Current RBS',k:'Already enrolled — reconsidering',q:'\u201CI\u2019m already at RBS. Can I still add or switch to SCM?\u201D',p:'Yes — and far simpler than you think. Your best career move may still be ahead of you.',cta:'See how it works',pic:'1_h4e54qlb'},
+  {go:'hs',num:'01 · High School',k:'Curious about what\u2019s next',q:'\u201CI want to explore what supply chain management actually is.\u201D',p:'Discover why SCM is the most in-demand yet least understood path in business today.',cta:'Discover SCM',pic:'https://github.com/dingrutgers-cyber/Rutgers-RB-SCM/blob/main/high-school-students-Gemini.png?raw=true'},
+  {go:'admitted',num:'02 · Admitted',k:'Ready to choose my major',q:'\u201CI got into RBS. Now I need to choose the right major.\u201D',p:'SCM graduates lead global operations, deploy AI, and earn more — from day one.',cta:'Make your choice',pic:'https://github.com/dingrutgers-cyber/Rutgers-RB-SCM/blob/main/Gemini_Admitted%20students.png?raw=true'},
+  {go:'current',num:'03 · Current RBS',k:'Already enrolled — reconsidering',q:'\u201CI\u2019m already at RBS. Can I still add or switch to SCM?\u201D',p:'Yes — and far simpler than you think. Your best career move may still be ahead of you.',cta:'See how it works',pic:'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=700&q=85&auto=format&fit=crop&crop=top'},
 ];
 const cards=document.getElementById('cards');
 HUBCARDS.forEach(c=>{const el=document.createElement('button');el.className='acard';el.dataset.go=c.go;
-  el.innerHTML=`<div class="pic" style="background-image:url('${kThumb(c.pic,640,400)}')"><span class="num">${c.num}</span></div><div class="body"><span class="k disp">${c.k}</span><div class="q">${c.q}</div><p>${c.p}</p><span class="enter">${c.cta} →</span></div>`;
+  el.innerHTML=`<div class="pic" style="background-image:url('${c.pic}')"><span class="num">${c.num}</span></div><div class="body"><span class="k disp">${c.k}</span><div class="q">${c.q}</div><p>${c.p}</p><span class="enter">${c.cta} →</span></div>`;
   cards.appendChild(el);});
 
 const TLINES=['Changemaker','Last-Mile Innovator','Global Operations','AI + Supply Chain','#5 in North America','82% Placed at Graduation','$78K Starting Salary'];
@@ -407,7 +408,7 @@ document.getElementById('hs').innerHTML=`
         <p class="sub">That phone in your pocket traveled across <b>5 continents</b> before it reached you. The people who made that happen — efficiently, on time, at scale — are supply chain managers. Demand for them has never been higher.</p>
         <div class="aphero-actions"><a class="btn btn-primary" data-scroll="hs-what">Explore the major</a><a class="btn btn-ghost" data-scroll="hs-careers">See career paths</a></div>
       </div>
-      <div class="aphero-card"><span class="lbl">Episode 02 · Faculty</span>${kScreen('1_a5zg9ncx')}</div>
+      <div class="aphero-card"><div class="aphero-pic" style="background-image:url('https://github.com/dingrutgers-cyber/Rutgers-RB-SCM/blob/main/high-school-students-Copilot.png?raw=true')"></div></div>
     </div>
   </div>
 </div>
@@ -482,7 +483,7 @@ ${facultySection('hs-faculty','1_a5zg9ncx',['1_h69z74pd','1_02osica1'],'Hear it 
   </div>
 </div>
 
-<div class="apcta"><div class="wrap apcta-in"><div><h2 class="disp">Ready to see where SCM takes you?</h2><p>Explore the program, meet an advisor, or watch the faculty series. Start anywhere.</p></div><div class="apcta-actions"><a href="https://www.business.rutgers.edu/undergraduate/supply-chain-management" target="_blank" rel="noopener">Explore the program →</a><a class="alt" data-go="home">← Back to all paths</a></div></div></div>`;
+<div class="apcta"><div class="wrap apcta-in"><div><h2 class="disp">Ready to see where SCM takes you?</h2><p>Explore the program, meet an advisor, or watch the faculty series. Start anywhere.</p></div><div class="apcta-actions"><a href="https://www.business.rutgers.edu/undergraduate-new-brunswick/supply-chain-management" target="_blank" rel="noopener">Explore the program →</a><a class="alt" data-go="home">← Back to all paths</a></div></div></div>`;
 
 /* ================= ADMITTED ================= */
 document.getElementById('admitted').innerHTML=`
@@ -496,7 +497,7 @@ document.getElementById('admitted').innerHTML=`
         <p class="sub">SCM is the <b>strategic</b> choice. Our graduates lead global operations, deploy AI, and solve real problems — from day one.</p>
         <div class="aphero-actions"><a class="btn btn-primary" data-scroll="ad-vs">SCM vs Finance</a><a class="btn btn-ghost" data-scroll="ad-land">Where grads land</a></div>
       </div>
-      <div class="aphero-card"><span class="lbl">Episode 03 · Faculty</span>${kScreen('1_270ol39j')}</div>
+      <div class="aphero-card"><div class="aphero-pic" style="background-image:url('https://github.com/dingrutgers-cyber/Rutgers-RB-SCM/blob/main/Gemini_Admitted%20students.png?raw=true')"></div></div>
     </div>
   </div>
 </div>
@@ -588,7 +589,7 @@ document.getElementById('current').innerHTML=`
         <p class="sub">Already enrolled but not in SCM? Whether you want to <b>switch your major</b> or add it as a double — it\u2019s more achievable than you think, and the payoff is substantial.</p>
         <div class="aphero-actions"><a class="btn btn-primary" data-scroll="cu-switch">How to switch</a><a class="btn btn-ghost" data-scroll="cu-vs">SCM vs my major</a></div>
       </div>
-      <div class="aphero-card"><span class="lbl">Episode 05 · Faculty</span>${kScreen('1_h4e54qlb')}</div>
+      <div class="aphero-card"><div class="aphero-pic" style="background-image:url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1000&q=90&auto=format&fit=crop&crop=top')"></div></div>
     </div>
   </div>
 </div>
